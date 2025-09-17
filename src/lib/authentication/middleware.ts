@@ -19,3 +19,18 @@ export const requireSession = async () => {
   }
   return session;
 };
+
+export const requireAdmin = async () => {
+  const session = await getServerSession();
+
+  if (!session || session.user.role !== "admin") {
+    redirect("/sign-in");
+  }
+
+  return session;
+};
+
+export const isAuthenticated = async () => {
+  const session = await getServerSession();
+  return !!session;
+};
