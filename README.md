@@ -32,6 +32,7 @@ A modern client management platform built with Next.js 15, featuring secure auth
 - **Charts**: Interactive charts with Recharts
 - **Icons**: Tabler Icons and Lucide React
 - **Code Quality**: Biome for linting and formatting
+- **System Design**: Comprehensive algorithms and patterns documented in [SYSTEM_ALGORITHMS.md](./SYSTEM_ALGORITHMS.md)
 
 ## 🛠️ Tech Stack
 
@@ -115,7 +116,7 @@ Visit `http://localhost:3000` to see the application.
 
 ## 🎯 Current Status
 
-The application is currently in active development with the following completed features:
+The application is currently in active development with a comprehensive system design and the following completed features:
 
 - ✅ **Project Setup**: Next.js 15 with App Router, TypeScript, and Tailwind CSS
 - ✅ **Authentication**: Better Auth integration with email/password authentication
@@ -124,13 +125,27 @@ The application is currently in active development with the following completed 
 - ✅ **Dashboard**: Interactive analytics dashboard with charts and metrics
 - ✅ **Code Quality**: Biome for linting and formatting
 - ✅ **Route Groups**: Organized routing with auth, marketing, and protected areas
+- ✅ **System Architecture**: Comprehensive algorithms and patterns documented
 
 ### In Development
 
 - 🚧 **Authentication Pages**: Sign-in, sign-up, and password reset forms
+- 🚧 **Workspace Management**: Multi-tenant workspace creation and management
+- 🚧 **Permission System**: Role-based access control implementation
 - 🚧 **Client Management**: CRUD operations for client profiles
 - 🚧 **Project Management**: Project tracking and task management
 - 🚧 **Account Settings**: User profile and account management
+
+### System Design Complete
+
+The comprehensive system algorithms document ([SYSTEM_ALGORITHMS.md](./SYSTEM_ALGORITHMS.md)) provides detailed blueprints for:
+
+- 25 core algorithms covering all major user flows
+- Multi-tenant architecture patterns
+- Real-time collaboration systems
+- Financial operations and payment processing
+- Security and compliance frameworks
+- Scalability and performance optimizations
 
 ## 📁 Project Structure
 
@@ -326,36 +341,100 @@ For support and questions:
 - Check the documentation
 - Contact the development team
 
+## 🏗️ System Architecture
+
+Cliently is built as a comprehensive client management SaaS platform with a focus on collaboration, project management, and business operations. The system follows a microservices-oriented architecture with clear separation of concerns.
+
+### Core Architecture Principles
+
+- **Multi-tenant SaaS**: Workspace-based isolation with shared infrastructure
+- **Event-driven Design**: Asynchronous processing with event sourcing patterns
+- **Real-time Collaboration**: WebSocket-based real-time updates
+- **Security-first**: Role-based access control and audit logging
+- **Scalable**: Designed for horizontal scaling and high availability
+
+### Key System Components
+
+- **Authentication Layer**: Better Auth with session management and role-based access
+- **API Layer**: Next.js App Router with server actions and API routes
+- **Database Layer**: PostgreSQL with Prisma ORM and connection pooling
+- **File Storage**: Cloud storage with virus scanning and versioning
+- **Search Engine**: Full-text search across all workspace data
+- **Notification System**: Real-time and email notifications with digesting
+- **Payment Processing**: Stripe integration with webhook handling
+- **Audit System**: Immutable audit trail for compliance
+
+For detailed system algorithms and implementation patterns, see [SYSTEM_ALGORITHMS.md](./SYSTEM_ALGORITHMS.md).
+
 ## 🔄 Development Roadmap
 
-### Phase 1 (Current - In Progress)
+### Phase 1: Foundation (Current - In Progress)
+
+**Core Infrastructure**
 
 - [x] Project setup and infrastructure
 - [x] Authentication system with Better Auth
 - [x] Database schema and migrations
 - [x] UI component library setup
 - [x] Dashboard with analytics
+
+**User Management**
+
 - [ ] Complete authentication pages (sign-in, sign-up, password reset)
+- [ ] Workspace creation and admin onboarding
+- [ ] Team member invitation system
+- [ ] Permission system implementation
+
+**Basic CRUD Operations**
+
 - [ ] Client management CRUD operations
 - [ ] Project management features
 - [ ] Account settings and user profile
 
-### Phase 2 (Next)
+### Phase 2: Collaboration (Next)
 
-- [ ] Invoice management system
-- [ ] Payment integration
+**Communication System**
+
+- [ ] Project messaging and threading
+- [ ] File upload and management with versioning
+- [ ] Real-time notifications and WebSocket integration
+- [ ] Search and indexing system
+
+**Task Management**
+
+- [ ] Task CRUD and assignment system
+- [ ] Task dependencies and workflows
+- [ ] Project activity timeline
+
+### Phase 3: Business Operations (Future)
+
+**Financial Management**
+
+- [ ] Invoice creation and PDF generation
+- [ ] Payment processing with Stripe integration
+- [ ] Financial reporting and analytics
+
+**Advanced Features**
+
+- [ ] Audit logging and compliance
+- [ ] Email integrations (Gmail, Outlook)
 - [ ] Advanced analytics and reporting
-- [ ] Team collaboration features
-- [ ] API documentation
-- [ ] Email notifications
+- [ ] API documentation and webhooks
 
-### Phase 3 (Future)
+### Phase 4: Scale & Integrations (Future)
+
+**Platform Features**
 
 - [ ] Mobile application
-- [ ] Advanced integrations
-- [ ] Multi-tenant support
+- [ ] Advanced integrations (Slack, Teams)
+- [ ] Multi-tenant scaling optimizations
 - [ ] White-label options
-- [ ] Advanced reporting and insights
+
+**Enterprise Features**
+
+- [ ] Advanced security and compliance
+- [ ] Custom reporting and dashboards
+- [ ] Enterprise SSO integration
 
 ---
 
