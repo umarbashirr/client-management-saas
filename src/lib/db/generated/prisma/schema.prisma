@@ -26,6 +26,7 @@ model User {
 
   members     Member[]
   invitations Invitation[]
+  auditLogs   AuditLog[]
 
   @@unique([email])
   @@map("user")
@@ -89,6 +90,7 @@ model Organization {
   metadata    String?
   members     Member[]
   invitations Invitation[]
+  auditLogs   AuditLog[]
 
   @@unique([slug])
   @@map("organization")
@@ -118,4 +120,40 @@ model Invitation {
   user           User         @relation(fields: [inviterId], references: [id], onDelete: Cascade)
 
   @@map("invitation")
+}
+
+model AuditLog {
+  id     String  @id @default(cuid())
+  userId String?
+  user   User?   @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  // Event details
+  action     String // e.g., "user.signin", "user.signup", "user.password_reset", "user.signout"
+  resource   String? // e.g., "user", "organization", "project", "client"
+  resourceId String? // ID of the affected resource
+
+  // Request context
+  ipAddress String?
+  userAgent String?
+  sessionId String?
+
+  // Event metadata
+  status   String // "success", "failure", "pending"
+  message  String? // Human-readable description
+  metadata String? // JSON string for additional data
+
+  // Timestamps
+  createdAt DateTime @default(now())
+
+  // Organization context (for multi-tenant)
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  @@index([userId])
+  @@index([action])
+  @@index([resource])
+  @@index([createdAt])
+  @@index([organizationId])
+  @@index([status])
+  @@map("audit_log")
 }

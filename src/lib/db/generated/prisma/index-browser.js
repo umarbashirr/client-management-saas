@@ -199,6 +199,22 @@ exports.Prisma.InvitationScalarFieldEnum = {
   inviterId: 'inviterId'
 };
 
+exports.Prisma.AuditLogScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  action: 'action',
+  resource: 'resource',
+  resourceId: 'resourceId',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  sessionId: 'sessionId',
+  status: 'status',
+  message: 'message',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  organizationId: 'organizationId'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -222,7 +238,8 @@ exports.Prisma.ModelName = {
   Verification: 'Verification',
   Organization: 'Organization',
   Member: 'Member',
-  Invitation: 'Invitation'
+  Invitation: 'Invitation',
+  AuditLog: 'AuditLog'
 };
 
 /**

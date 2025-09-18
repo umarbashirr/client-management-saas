@@ -1,8 +1,9 @@
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
-import { prisma } from "@/lib/db/config";
 import { admin, organization } from "better-auth/plugins";
 import { nextCookies } from "better-auth/next-js";
+import { prisma } from "@/lib/db/config";
+import { sendPasswordResetEmail } from "@/features/auth/actions/send-password-reset-email";
 
 export const auth = betterAuth({
   database: prismaAdapter(prisma, {
@@ -10,7 +11,11 @@ export const auth = betterAuth({
   }),
   emailAndPassword: {
     enabled: true,
+    sendResetPassword: async ({ user, url }) => {
+      await sendPasswordResetEmail(user.name, user.email, url);
+    },
   },
+
   socialProviders: {
     google: {
       clientId: process.env.GOOGLE_CLIENT_ID as string,
