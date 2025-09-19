@@ -10,9 +10,14 @@ export const getClients = async (
   const clients = await prisma.client.findMany({
     where: {
       organizationId,
+      deletedAt: null, // Exclude soft-deleted clients
     },
     include: {
-      contacts: true,
+      contacts: {
+        where: {
+          isActive: true, // Only include active contacts
+        },
+      },
     },
     orderBy: {
       createdAt: "desc",
@@ -27,9 +32,14 @@ export const getClientById = async (
   const client = await prisma.client.findUnique({
     where: {
       id,
+      deletedAt: null, // Exclude soft-deleted clients
     },
     include: {
-      contacts: true,
+      contacts: {
+        where: {
+          isActive: true, // Only include active contacts
+        },
+      },
     },
   });
   return client;
@@ -43,9 +53,14 @@ export const getClientsByStatus = async (
     where: {
       organizationId,
       status,
+      deletedAt: null, // Exclude soft-deleted clients
     },
     include: {
-      contacts: true,
+      contacts: {
+        where: {
+          isActive: true, // Only include active contacts
+        },
+      },
     },
     orderBy: {
       createdAt: "desc",
@@ -62,9 +77,14 @@ export const getClientsByPriority = async (
     where: {
       organizationId,
       priority,
+      deletedAt: null, // Exclude soft-deleted clients
     },
     include: {
-      contacts: true,
+      contacts: {
+        where: {
+          isActive: true, // Only include active contacts
+        },
+      },
     },
     orderBy: {
       createdAt: "desc",
@@ -80,6 +100,7 @@ export const searchClients = async (
   const clients = await prisma.client.findMany({
     where: {
       organizationId,
+      deletedAt: null, // Exclude soft-deleted clients
       OR: [
         {
           name: {
@@ -108,7 +129,11 @@ export const searchClients = async (
       ],
     },
     include: {
-      contacts: true,
+      contacts: {
+        where: {
+          isActive: true, // Only include active contacts
+        },
+      },
     },
     orderBy: {
       createdAt: "desc",

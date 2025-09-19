@@ -235,7 +235,10 @@ exports.Prisma.ClientScalarFieldEnum = {
   customFields: 'customFields',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
-  lastContactAt: 'lastContactAt'
+  lastContactAt: 'lastContactAt',
+  deletedAt: 'deletedAt',
+  deletedBy: 'deletedBy',
+  deleteReason: 'deleteReason'
 };
 
 exports.Prisma.ClientContactScalarFieldEnum = {

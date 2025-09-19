@@ -10986,6 +10986,9 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     lastContactAt: Date | null
+    deletedAt: Date | null
+    deletedBy: string | null
+    deleteReason: string | null
   }
 
   export type ClientMaxAggregateOutputType = {
@@ -11007,6 +11010,9 @@ export namespace Prisma {
     createdAt: Date | null
     updatedAt: Date | null
     lastContactAt: Date | null
+    deletedAt: Date | null
+    deletedBy: string | null
+    deleteReason: string | null
   }
 
   export type ClientCountAggregateOutputType = {
@@ -11030,6 +11036,9 @@ export namespace Prisma {
     createdAt: number
     updatedAt: number
     lastContactAt: number
+    deletedAt: number
+    deletedBy: number
+    deleteReason: number
     _all: number
   }
 
@@ -11053,6 +11062,9 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     lastContactAt?: true
+    deletedAt?: true
+    deletedBy?: true
+    deleteReason?: true
   }
 
   export type ClientMaxAggregateInputType = {
@@ -11074,6 +11086,9 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     lastContactAt?: true
+    deletedAt?: true
+    deletedBy?: true
+    deleteReason?: true
   }
 
   export type ClientCountAggregateInputType = {
@@ -11097,6 +11112,9 @@ export namespace Prisma {
     createdAt?: true
     updatedAt?: true
     lastContactAt?: true
+    deletedAt?: true
+    deletedBy?: true
+    deleteReason?: true
     _all?: true
   }
 
@@ -11193,6 +11211,9 @@ export namespace Prisma {
     createdAt: Date
     updatedAt: Date
     lastContactAt: Date | null
+    deletedAt: Date | null
+    deletedBy: string | null
+    deleteReason: string | null
     _count: ClientCountAggregateOutputType | null
     _min: ClientMinAggregateOutputType | null
     _max: ClientMaxAggregateOutputType | null
@@ -11233,6 +11254,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     lastContactAt?: boolean
+    deletedAt?: boolean
+    deletedBy?: boolean
+    deleteReason?: boolean
     organization?: boolean | OrganizationDefaultArgs<ExtArgs>
     contacts?: boolean | Client$contactsArgs<ExtArgs>
     _count?: boolean | ClientCountOutputTypeDefaultArgs<ExtArgs>
@@ -11259,6 +11283,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     lastContactAt?: boolean
+    deletedAt?: boolean
+    deletedBy?: boolean
+    deleteReason?: boolean
     organization?: boolean | OrganizationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["client"]>
 
@@ -11283,6 +11310,9 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     lastContactAt?: boolean
+    deletedAt?: boolean
+    deletedBy?: boolean
+    deleteReason?: boolean
     organization?: boolean | OrganizationDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["client"]>
 
@@ -11307,9 +11337,12 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     lastContactAt?: boolean
+    deletedAt?: boolean
+    deletedBy?: boolean
+    deleteReason?: boolean
   }
 
-  export type ClientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organizationId" | "name" | "companyName" | "website" | "description" | "logo" | "primaryEmail" | "primaryPhone" | "industry" | "companySize" | "annualRevenue" | "status" | "priority" | "source" | "tags" | "customFields" | "createdAt" | "updatedAt" | "lastContactAt", ExtArgs["result"]["client"]>
+  export type ClientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organizationId" | "name" | "companyName" | "website" | "description" | "logo" | "primaryEmail" | "primaryPhone" | "industry" | "companySize" | "annualRevenue" | "status" | "priority" | "source" | "tags" | "customFields" | "createdAt" | "updatedAt" | "lastContactAt" | "deletedAt" | "deletedBy" | "deleteReason", ExtArgs["result"]["client"]>
   export type ClientInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     organization?: boolean | OrganizationDefaultArgs<ExtArgs>
     contacts?: boolean | Client$contactsArgs<ExtArgs>
@@ -11349,6 +11382,9 @@ export namespace Prisma {
       createdAt: Date
       updatedAt: Date
       lastContactAt: Date | null
+      deletedAt: Date | null
+      deletedBy: string | null
+      deleteReason: string | null
     }, ExtArgs["result"]["client"]>
     composites: {}
   }
@@ -11794,6 +11830,9 @@ export namespace Prisma {
     readonly createdAt: FieldRef<"Client", 'DateTime'>
     readonly updatedAt: FieldRef<"Client", 'DateTime'>
     readonly lastContactAt: FieldRef<"Client", 'DateTime'>
+    readonly deletedAt: FieldRef<"Client", 'DateTime'>
+    readonly deletedBy: FieldRef<"Client", 'String'>
+    readonly deleteReason: FieldRef<"Client", 'String'>
   }
     
 
@@ -13581,7 +13620,10 @@ export namespace Prisma {
     customFields: 'customFields',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
-    lastContactAt: 'lastContactAt'
+    lastContactAt: 'lastContactAt',
+    deletedAt: 'deletedAt',
+    deletedBy: 'deletedBy',
+    deleteReason: 'deleteReason'
   };
 
   export type ClientScalarFieldEnum = (typeof ClientScalarFieldEnum)[keyof typeof ClientScalarFieldEnum]
@@ -14369,6 +14411,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Client"> | Date | string
     updatedAt?: DateTimeFilter<"Client"> | Date | string
     lastContactAt?: DateTimeNullableFilter<"Client"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Client"> | Date | string | null
+    deletedBy?: StringNullableFilter<"Client"> | string | null
+    deleteReason?: StringNullableFilter<"Client"> | string | null
     organization?: XOR<OrganizationScalarRelationFilter, OrganizationWhereInput>
     contacts?: ClientContactListRelationFilter
   }
@@ -14394,6 +14439,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     lastContactAt?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    deletedBy?: SortOrderInput | SortOrder
+    deleteReason?: SortOrderInput | SortOrder
     organization?: OrganizationOrderByWithRelationInput
     contacts?: ClientContactOrderByRelationAggregateInput
   }
@@ -14422,6 +14470,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Client"> | Date | string
     updatedAt?: DateTimeFilter<"Client"> | Date | string
     lastContactAt?: DateTimeNullableFilter<"Client"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Client"> | Date | string | null
+    deletedBy?: StringNullableFilter<"Client"> | string | null
+    deleteReason?: StringNullableFilter<"Client"> | string | null
     organization?: XOR<OrganizationScalarRelationFilter, OrganizationWhereInput>
     contacts?: ClientContactListRelationFilter
   }, "id">
@@ -14447,6 +14498,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     lastContactAt?: SortOrderInput | SortOrder
+    deletedAt?: SortOrderInput | SortOrder
+    deletedBy?: SortOrderInput | SortOrder
+    deleteReason?: SortOrderInput | SortOrder
     _count?: ClientCountOrderByAggregateInput
     _max?: ClientMaxOrderByAggregateInput
     _min?: ClientMinOrderByAggregateInput
@@ -14476,6 +14530,9 @@ export namespace Prisma {
     createdAt?: DateTimeWithAggregatesFilter<"Client"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Client"> | Date | string
     lastContactAt?: DateTimeNullableWithAggregatesFilter<"Client"> | Date | string | null
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"Client"> | Date | string | null
+    deletedBy?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    deleteReason?: StringNullableWithAggregatesFilter<"Client"> | string | null
   }
 
   export type ClientContactWhereInput = {
@@ -15303,6 +15360,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     lastContactAt?: Date | string | null
+    deletedAt?: Date | string | null
+    deletedBy?: string | null
+    deleteReason?: string | null
     organization: OrganizationCreateNestedOneWithoutClientInput
     contacts?: ClientContactCreateNestedManyWithoutClientInput
   }
@@ -15328,6 +15388,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     lastContactAt?: Date | string | null
+    deletedAt?: Date | string | null
+    deletedBy?: string | null
+    deleteReason?: string | null
     contacts?: ClientContactUncheckedCreateNestedManyWithoutClientInput
   }
 
@@ -15351,6 +15414,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    deleteReason?: NullableStringFieldUpdateOperationsInput | string | null
     organization?: OrganizationUpdateOneRequiredWithoutClientNestedInput
     contacts?: ClientContactUpdateManyWithoutClientNestedInput
   }
@@ -15376,6 +15442,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    deleteReason?: NullableStringFieldUpdateOperationsInput | string | null
     contacts?: ClientContactUncheckedUpdateManyWithoutClientNestedInput
   }
 
@@ -15400,6 +15469,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     lastContactAt?: Date | string | null
+    deletedAt?: Date | string | null
+    deletedBy?: string | null
+    deleteReason?: string | null
   }
 
   export type ClientUpdateManyMutationInput = {
@@ -15422,6 +15494,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    deleteReason?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClientUncheckedUpdateManyInput = {
@@ -15445,6 +15520,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    deleteReason?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClientContactCreateInput = {
@@ -16145,6 +16223,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     lastContactAt?: SortOrder
+    deletedAt?: SortOrder
+    deletedBy?: SortOrder
+    deleteReason?: SortOrder
   }
 
   export type ClientMaxOrderByAggregateInput = {
@@ -16166,6 +16247,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     lastContactAt?: SortOrder
+    deletedAt?: SortOrder
+    deletedBy?: SortOrder
+    deleteReason?: SortOrder
   }
 
   export type ClientMinOrderByAggregateInput = {
@@ -16187,6 +16271,9 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     lastContactAt?: SortOrder
+    deletedAt?: SortOrder
+    deletedBy?: SortOrder
+    deleteReason?: SortOrder
   }
   export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -17722,6 +17809,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     lastContactAt?: Date | string | null
+    deletedAt?: Date | string | null
+    deletedBy?: string | null
+    deleteReason?: string | null
     contacts?: ClientContactCreateNestedManyWithoutClientInput
   }
 
@@ -17745,6 +17835,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     lastContactAt?: Date | string | null
+    deletedAt?: Date | string | null
+    deletedBy?: string | null
+    deleteReason?: string | null
     contacts?: ClientContactUncheckedCreateNestedManyWithoutClientInput
   }
 
@@ -17890,6 +17983,9 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"Client"> | Date | string
     updatedAt?: DateTimeFilter<"Client"> | Date | string
     lastContactAt?: DateTimeNullableFilter<"Client"> | Date | string | null
+    deletedAt?: DateTimeNullableFilter<"Client"> | Date | string | null
+    deletedBy?: StringNullableFilter<"Client"> | string | null
+    deleteReason?: StringNullableFilter<"Client"> | string | null
   }
 
   export type ClientContactUpsertWithWhereUniqueWithoutOrganizationInput = {
@@ -18545,6 +18641,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     lastContactAt?: Date | string | null
+    deletedAt?: Date | string | null
+    deletedBy?: string | null
+    deleteReason?: string | null
     organization: OrganizationCreateNestedOneWithoutClientInput
   }
 
@@ -18569,6 +18668,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     lastContactAt?: Date | string | null
+    deletedAt?: Date | string | null
+    deletedBy?: string | null
+    deleteReason?: string | null
   }
 
   export type ClientCreateOrConnectWithoutContactsInput = {
@@ -18638,6 +18740,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    deleteReason?: NullableStringFieldUpdateOperationsInput | string | null
     organization?: OrganizationUpdateOneRequiredWithoutClientNestedInput
   }
 
@@ -18662,6 +18767,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    deleteReason?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type OrganizationUpsertWithoutClientContactInput = {
@@ -18984,6 +19092,9 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     lastContactAt?: Date | string | null
+    deletedAt?: Date | string | null
+    deletedBy?: string | null
+    deleteReason?: string | null
   }
 
   export type ClientContactCreateManyOrganizationInput = {
@@ -19116,6 +19227,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    deleteReason?: NullableStringFieldUpdateOperationsInput | string | null
     contacts?: ClientContactUpdateManyWithoutClientNestedInput
   }
 
@@ -19139,6 +19253,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    deleteReason?: NullableStringFieldUpdateOperationsInput | string | null
     contacts?: ClientContactUncheckedUpdateManyWithoutClientNestedInput
   }
 
@@ -19162,6 +19279,9 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    deletedBy?: NullableStringFieldUpdateOperationsInput | string | null
+    deleteReason?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type ClientContactUpdateWithoutOrganizationInput = {

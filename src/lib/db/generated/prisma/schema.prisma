@@ -195,6 +195,11 @@ model Client {
   updatedAt     DateTime  @updatedAt
   lastContactAt DateTime?
 
+  // Soft Delete
+  deletedAt    DateTime?
+  deletedBy    String?
+  deleteReason String?
+
   // Relations
   contacts ClientContact[]
 
@@ -202,6 +207,7 @@ model Client {
   @@index([status])
   @@index([priority])
   @@index([createdAt])
+  @@index([deletedAt])
   @@map("client")
 }
 
