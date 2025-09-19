@@ -46,7 +46,7 @@ import {
   Plus,
 } from "lucide-react";
 import { ClientWithContacts } from "../types";
-import { clientTableColumns } from "./client-table-columns";
+import { createClientTableColumns } from "./client-table-columns";
 import { ClientTableFilters } from "./client-table-filters";
 import { CreateClientForm } from "./create-client-form";
 
@@ -87,7 +87,7 @@ export function ClientTable({
 
   const table = useReactTable({
     data: filteredData,
-    columns: clientTableColumns,
+    columns: createClientTableColumns(organizationId),
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
     getCoreRowModel: getCoreRowModel(),
@@ -225,7 +225,7 @@ export function ClientTable({
             {isLoading ? (
               <TableRow>
                 <TableCell
-                  colSpan={clientTableColumns.length}
+                  colSpan={table.getAllColumns().length}
                   className="h-24 text-center"
                 >
                   <div className="flex items-center justify-center space-x-2">
@@ -253,7 +253,7 @@ export function ClientTable({
             ) : (
               <TableRow>
                 <TableCell
-                  colSpan={clientTableColumns.length}
+                  colSpan={table.getAllColumns().length}
                   className="h-24 text-center"
                 >
                   No clients found.

@@ -1,6 +1,7 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +21,7 @@ import {
   Trash2,
   Mail,
   Phone,
+  ExternalLink,
 } from "lucide-react";
 import {
   ClientWithContacts,
@@ -28,7 +30,9 @@ import {
 } from "../types";
 import { format } from "date-fns";
 
-export const clientTableColumns: ColumnDef<ClientWithContacts>[] = [
+export const createClientTableColumns = (
+  organizationId: string
+): ColumnDef<ClientWithContacts>[] => [
   {
     id: "select",
     header: ({ table }) => (
@@ -68,21 +72,27 @@ export const clientTableColumns: ColumnDef<ClientWithContacts>[] = [
     cell: ({ row }) => {
       const client = row.original;
       return (
-        <div className="flex items-center space-x-3">
+        <Link
+          href={`/workspace/${organizationId}/clients/${client.id}`}
+          className="group flex items-center space-x-3 hover:bg-muted/50 rounded-md p-1 -m-1 transition-colors"
+        >
           <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center">
             <span className="text-sm font-medium text-primary">
               {client.name.charAt(0).toUpperCase()}
             </span>
           </div>
           <div className="flex flex-col">
-            <div className="font-medium">{client.name}</div>
+            <div className="font-medium hover:text-primary transition-colors">
+              {client.name}
+            </div>
             {client.companyName && (
               <div className="text-sm text-muted-foreground">
                 {client.companyName}
               </div>
             )}
           </div>
-        </div>
+          <ExternalLink className="h-3 w-3 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+        </Link>
       );
     },
   },
@@ -260,9 +270,14 @@ export const clientTableColumns: ColumnDef<ClientWithContacts>[] = [
               Copy client ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <Eye className="mr-2 h-4 w-4" />
-              View details
+            <DropdownMenuItem asChild>
+              <Link
+                href={`/workspace/${organizationId}/clients/${client.id}`}
+                className="flex items-center"
+              >
+                <Eye className="mr-2 h-4 w-4" />
+                View details
+              </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Edit className="mr-2 h-4 w-4" />
