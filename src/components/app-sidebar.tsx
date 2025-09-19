@@ -50,8 +50,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         icon: IconListDetails,
       },
       {
-        title: "Reports",
-        url: `/workspace/${workspaceId}/reports`,
+        title: "Analytics",
+        url: `/workspace/${workspaceId}/analytics`,
         icon: IconChartBar,
       },
     ],
