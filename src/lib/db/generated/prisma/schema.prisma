@@ -82,15 +82,17 @@ model Verification {
 }
 
 model Organization {
-  id          String       @id
-  name        String
-  slug        String?
-  logo        String?
-  createdAt   DateTime
-  metadata    String?
-  members     Member[]
-  invitations Invitation[]
-  auditLogs   AuditLog[]
+  id            String          @id
+  name          String
+  slug          String?
+  logo          String?
+  createdAt     DateTime
+  metadata      String?
+  members       Member[]
+  invitations   Invitation[]
+  auditLogs     AuditLog[]
+  Client        Client[]
+  ClientContact ClientContact[]
 
   @@unique([slug])
   @@map("organization")
@@ -156,4 +158,81 @@ model AuditLog {
   @@index([organizationId])
   @@index([status])
   @@map("audit_log")
+}
+
+model Client {
+  id             String       @id @default(cuid())
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  // Basic Information
+  name        String
+  companyName String?
+  website     String?
+  description String?
+  logo        String?
+
+  // Contact Information
+  primaryEmail String?
+  primaryPhone String?
+
+  // Business Information
+  industry      String?
+  companySize   String? // "1-10", "11-50", "51-200", "201-500", "500+"
+  annualRevenue String? // "0-100k", "100k-1m", "1m-10m", "10m+"
+
+  // Status & Classification
+  status   String  @default("active") // "active", "inactive", "prospect", "lead"
+  priority String  @default("medium") // "low", "medium", "high", "critical"
+  source   String? // "referral", "website", "social", "cold_call", "other"
+
+  // Tags & Custom Fields
+  tags         String[] @default([])
+  customFields Json? // Flexible custom field storage
+
+  // Timestamps
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  lastContactAt DateTime?
+
+  // Relations
+  contacts ClientContact[]
+
+  @@index([organizationId])
+  @@index([status])
+  @@index([priority])
+  @@index([createdAt])
+  @@map("client")
+}
+
+model ClientContact {
+  id             String       @id @default(cuid())
+  clientId       String
+  client         Client       @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  // Contact Details
+  firstName  String
+  lastName   String
+  email      String?
+  phone      String?
+  position   String? // "CEO", "CTO", "Manager", etc.
+  department String?
+
+  // Contact Preferences
+  isPrimary              Boolean @default(false)
+  preferredContactMethod String? // "email", "phone", "sms"
+  timezone               String?
+
+  // Status
+  isActive Boolean @default(true)
+
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clientId])
+  @@index([organizationId])
+  @@map("client_contact")
 }

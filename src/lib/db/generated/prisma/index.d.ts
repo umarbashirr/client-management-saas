@@ -53,6 +53,16 @@ export type Invitation = $Result.DefaultSelection<Prisma.$InvitationPayload>
  * 
  */
 export type AuditLog = $Result.DefaultSelection<Prisma.$AuditLogPayload>
+/**
+ * Model Client
+ * 
+ */
+export type Client = $Result.DefaultSelection<Prisma.$ClientPayload>
+/**
+ * Model ClientContact
+ * 
+ */
+export type ClientContact = $Result.DefaultSelection<Prisma.$ClientContactPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -251,6 +261,26 @@ export class PrismaClient<
     * ```
     */
   get auditLog(): Prisma.AuditLogDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.client`: Exposes CRUD operations for the **Client** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Clients
+    * const clients = await prisma.client.findMany()
+    * ```
+    */
+  get client(): Prisma.ClientDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.clientContact`: Exposes CRUD operations for the **ClientContact** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more ClientContacts
+    * const clientContacts = await prisma.clientContact.findMany()
+    * ```
+    */
+  get clientContact(): Prisma.ClientContactDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -698,7 +728,9 @@ export namespace Prisma {
     Organization: 'Organization',
     Member: 'Member',
     Invitation: 'Invitation',
-    AuditLog: 'AuditLog'
+    AuditLog: 'AuditLog',
+    Client: 'Client',
+    ClientContact: 'ClientContact'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -717,7 +749,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "session" | "account" | "verification" | "organization" | "member" | "invitation" | "auditLog"
+      modelProps: "user" | "session" | "account" | "verification" | "organization" | "member" | "invitation" | "auditLog" | "client" | "clientContact"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1313,6 +1345,154 @@ export namespace Prisma {
           }
         }
       }
+      Client: {
+        payload: Prisma.$ClientPayload<ExtArgs>
+        fields: Prisma.ClientFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClientFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClientFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload>
+          }
+          findFirst: {
+            args: Prisma.ClientFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClientFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload>
+          }
+          findMany: {
+            args: Prisma.ClientFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload>[]
+          }
+          create: {
+            args: Prisma.ClientCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload>
+          }
+          createMany: {
+            args: Prisma.ClientCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClientCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload>[]
+          }
+          delete: {
+            args: Prisma.ClientDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload>
+          }
+          update: {
+            args: Prisma.ClientUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClientDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClientUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClientUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload>[]
+          }
+          upsert: {
+            args: Prisma.ClientUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientPayload>
+          }
+          aggregate: {
+            args: Prisma.ClientAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClient>
+          }
+          groupBy: {
+            args: Prisma.ClientGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClientGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClientCountArgs<ExtArgs>
+            result: $Utils.Optional<ClientCountAggregateOutputType> | number
+          }
+        }
+      }
+      ClientContact: {
+        payload: Prisma.$ClientContactPayload<ExtArgs>
+        fields: Prisma.ClientContactFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ClientContactFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ClientContactFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload>
+          }
+          findFirst: {
+            args: Prisma.ClientContactFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ClientContactFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload>
+          }
+          findMany: {
+            args: Prisma.ClientContactFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload>[]
+          }
+          create: {
+            args: Prisma.ClientContactCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload>
+          }
+          createMany: {
+            args: Prisma.ClientContactCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ClientContactCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload>[]
+          }
+          delete: {
+            args: Prisma.ClientContactDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload>
+          }
+          update: {
+            args: Prisma.ClientContactUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload>
+          }
+          deleteMany: {
+            args: Prisma.ClientContactDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ClientContactUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ClientContactUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload>[]
+          }
+          upsert: {
+            args: Prisma.ClientContactUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ClientContactPayload>
+          }
+          aggregate: {
+            args: Prisma.ClientContactAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateClientContact>
+          }
+          groupBy: {
+            args: Prisma.ClientContactGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ClientContactGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ClientContactCountArgs<ExtArgs>
+            result: $Utils.Optional<ClientContactCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1417,6 +1597,8 @@ export namespace Prisma {
     member?: MemberOmit
     invitation?: InvitationOmit
     auditLog?: AuditLogOmit
+    client?: ClientOmit
+    clientContact?: ClientContactOmit
   }
 
   /* Types for Logging */
@@ -1567,12 +1749,16 @@ export namespace Prisma {
     members: number
     invitations: number
     auditLogs: number
+    Client: number
+    ClientContact: number
   }
 
   export type OrganizationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     members?: boolean | OrganizationCountOutputTypeCountMembersArgs
     invitations?: boolean | OrganizationCountOutputTypeCountInvitationsArgs
     auditLogs?: boolean | OrganizationCountOutputTypeCountAuditLogsArgs
+    Client?: boolean | OrganizationCountOutputTypeCountClientArgs
+    ClientContact?: boolean | OrganizationCountOutputTypeCountClientContactArgs
   }
 
   // Custom InputTypes
@@ -1605,6 +1791,51 @@ export namespace Prisma {
    */
   export type OrganizationCountOutputTypeCountAuditLogsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: AuditLogWhereInput
+  }
+
+  /**
+   * OrganizationCountOutputType without action
+   */
+  export type OrganizationCountOutputTypeCountClientArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientWhereInput
+  }
+
+  /**
+   * OrganizationCountOutputType without action
+   */
+  export type OrganizationCountOutputTypeCountClientContactArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientContactWhereInput
+  }
+
+
+  /**
+   * Count Type ClientCountOutputType
+   */
+
+  export type ClientCountOutputType = {
+    contacts: number
+  }
+
+  export type ClientCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    contacts?: boolean | ClientCountOutputTypeCountContactsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * ClientCountOutputType without action
+   */
+  export type ClientCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientCountOutputType
+     */
+    select?: ClientCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * ClientCountOutputType without action
+   */
+  export type ClientCountOutputTypeCountContactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientContactWhereInput
   }
 
 
@@ -6340,6 +6571,8 @@ export namespace Prisma {
     members?: boolean | Organization$membersArgs<ExtArgs>
     invitations?: boolean | Organization$invitationsArgs<ExtArgs>
     auditLogs?: boolean | Organization$auditLogsArgs<ExtArgs>
+    Client?: boolean | Organization$ClientArgs<ExtArgs>
+    ClientContact?: boolean | Organization$ClientContactArgs<ExtArgs>
     _count?: boolean | OrganizationCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["organization"]>
 
@@ -6375,6 +6608,8 @@ export namespace Prisma {
     members?: boolean | Organization$membersArgs<ExtArgs>
     invitations?: boolean | Organization$invitationsArgs<ExtArgs>
     auditLogs?: boolean | Organization$auditLogsArgs<ExtArgs>
+    Client?: boolean | Organization$ClientArgs<ExtArgs>
+    ClientContact?: boolean | Organization$ClientContactArgs<ExtArgs>
     _count?: boolean | OrganizationCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type OrganizationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -6386,6 +6621,8 @@ export namespace Prisma {
       members: Prisma.$MemberPayload<ExtArgs>[]
       invitations: Prisma.$InvitationPayload<ExtArgs>[]
       auditLogs: Prisma.$AuditLogPayload<ExtArgs>[]
+      Client: Prisma.$ClientPayload<ExtArgs>[]
+      ClientContact: Prisma.$ClientContactPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6791,6 +7028,8 @@ export namespace Prisma {
     members<T extends Organization$membersArgs<ExtArgs> = {}>(args?: Subset<T, Organization$membersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MemberPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     invitations<T extends Organization$invitationsArgs<ExtArgs> = {}>(args?: Subset<T, Organization$invitationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvitationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     auditLogs<T extends Organization$auditLogsArgs<ExtArgs> = {}>(args?: Subset<T, Organization$auditLogsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuditLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    Client<T extends Organization$ClientArgs<ExtArgs> = {}>(args?: Subset<T, Organization$ClientArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    ClientContact<T extends Organization$ClientContactArgs<ExtArgs> = {}>(args?: Subset<T, Organization$ClientContactArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7283,6 +7522,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: AuditLogScalarFieldEnum | AuditLogScalarFieldEnum[]
+  }
+
+  /**
+   * Organization.Client
+   */
+  export type Organization$ClientArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+    where?: ClientWhereInput
+    orderBy?: ClientOrderByWithRelationInput | ClientOrderByWithRelationInput[]
+    cursor?: ClientWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClientScalarFieldEnum | ClientScalarFieldEnum[]
+  }
+
+  /**
+   * Organization.ClientContact
+   */
+  export type Organization$ClientContactArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    where?: ClientContactWhereInput
+    orderBy?: ClientContactOrderByWithRelationInput | ClientContactOrderByWithRelationInput[]
+    cursor?: ClientContactWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClientContactScalarFieldEnum | ClientContactScalarFieldEnum[]
   }
 
   /**
@@ -10671,6 +10958,2477 @@ export namespace Prisma {
 
 
   /**
+   * Model Client
+   */
+
+  export type AggregateClient = {
+    _count: ClientCountAggregateOutputType | null
+    _min: ClientMinAggregateOutputType | null
+    _max: ClientMaxAggregateOutputType | null
+  }
+
+  export type ClientMinAggregateOutputType = {
+    id: string | null
+    organizationId: string | null
+    name: string | null
+    companyName: string | null
+    website: string | null
+    description: string | null
+    logo: string | null
+    primaryEmail: string | null
+    primaryPhone: string | null
+    industry: string | null
+    companySize: string | null
+    annualRevenue: string | null
+    status: string | null
+    priority: string | null
+    source: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    lastContactAt: Date | null
+  }
+
+  export type ClientMaxAggregateOutputType = {
+    id: string | null
+    organizationId: string | null
+    name: string | null
+    companyName: string | null
+    website: string | null
+    description: string | null
+    logo: string | null
+    primaryEmail: string | null
+    primaryPhone: string | null
+    industry: string | null
+    companySize: string | null
+    annualRevenue: string | null
+    status: string | null
+    priority: string | null
+    source: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    lastContactAt: Date | null
+  }
+
+  export type ClientCountAggregateOutputType = {
+    id: number
+    organizationId: number
+    name: number
+    companyName: number
+    website: number
+    description: number
+    logo: number
+    primaryEmail: number
+    primaryPhone: number
+    industry: number
+    companySize: number
+    annualRevenue: number
+    status: number
+    priority: number
+    source: number
+    tags: number
+    customFields: number
+    createdAt: number
+    updatedAt: number
+    lastContactAt: number
+    _all: number
+  }
+
+
+  export type ClientMinAggregateInputType = {
+    id?: true
+    organizationId?: true
+    name?: true
+    companyName?: true
+    website?: true
+    description?: true
+    logo?: true
+    primaryEmail?: true
+    primaryPhone?: true
+    industry?: true
+    companySize?: true
+    annualRevenue?: true
+    status?: true
+    priority?: true
+    source?: true
+    createdAt?: true
+    updatedAt?: true
+    lastContactAt?: true
+  }
+
+  export type ClientMaxAggregateInputType = {
+    id?: true
+    organizationId?: true
+    name?: true
+    companyName?: true
+    website?: true
+    description?: true
+    logo?: true
+    primaryEmail?: true
+    primaryPhone?: true
+    industry?: true
+    companySize?: true
+    annualRevenue?: true
+    status?: true
+    priority?: true
+    source?: true
+    createdAt?: true
+    updatedAt?: true
+    lastContactAt?: true
+  }
+
+  export type ClientCountAggregateInputType = {
+    id?: true
+    organizationId?: true
+    name?: true
+    companyName?: true
+    website?: true
+    description?: true
+    logo?: true
+    primaryEmail?: true
+    primaryPhone?: true
+    industry?: true
+    companySize?: true
+    annualRevenue?: true
+    status?: true
+    priority?: true
+    source?: true
+    tags?: true
+    customFields?: true
+    createdAt?: true
+    updatedAt?: true
+    lastContactAt?: true
+    _all?: true
+  }
+
+  export type ClientAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Client to aggregate.
+     */
+    where?: ClientWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clients to fetch.
+     */
+    orderBy?: ClientOrderByWithRelationInput | ClientOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClientWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clients from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clients.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Clients
+    **/
+    _count?: true | ClientCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClientMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClientMaxAggregateInputType
+  }
+
+  export type GetClientAggregateType<T extends ClientAggregateArgs> = {
+        [P in keyof T & keyof AggregateClient]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClient[P]>
+      : GetScalarType<T[P], AggregateClient[P]>
+  }
+
+
+
+
+  export type ClientGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientWhereInput
+    orderBy?: ClientOrderByWithAggregationInput | ClientOrderByWithAggregationInput[]
+    by: ClientScalarFieldEnum[] | ClientScalarFieldEnum
+    having?: ClientScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClientCountAggregateInputType | true
+    _min?: ClientMinAggregateInputType
+    _max?: ClientMaxAggregateInputType
+  }
+
+  export type ClientGroupByOutputType = {
+    id: string
+    organizationId: string
+    name: string
+    companyName: string | null
+    website: string | null
+    description: string | null
+    logo: string | null
+    primaryEmail: string | null
+    primaryPhone: string | null
+    industry: string | null
+    companySize: string | null
+    annualRevenue: string | null
+    status: string
+    priority: string
+    source: string | null
+    tags: string[]
+    customFields: JsonValue | null
+    createdAt: Date
+    updatedAt: Date
+    lastContactAt: Date | null
+    _count: ClientCountAggregateOutputType | null
+    _min: ClientMinAggregateOutputType | null
+    _max: ClientMaxAggregateOutputType | null
+  }
+
+  type GetClientGroupByPayload<T extends ClientGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClientGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClientGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClientGroupByOutputType[P]>
+            : GetScalarType<T[P], ClientGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClientSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organizationId?: boolean
+    name?: boolean
+    companyName?: boolean
+    website?: boolean
+    description?: boolean
+    logo?: boolean
+    primaryEmail?: boolean
+    primaryPhone?: boolean
+    industry?: boolean
+    companySize?: boolean
+    annualRevenue?: boolean
+    status?: boolean
+    priority?: boolean
+    source?: boolean
+    tags?: boolean
+    customFields?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    lastContactAt?: boolean
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+    contacts?: boolean | Client$contactsArgs<ExtArgs>
+    _count?: boolean | ClientCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["client"]>
+
+  export type ClientSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organizationId?: boolean
+    name?: boolean
+    companyName?: boolean
+    website?: boolean
+    description?: boolean
+    logo?: boolean
+    primaryEmail?: boolean
+    primaryPhone?: boolean
+    industry?: boolean
+    companySize?: boolean
+    annualRevenue?: boolean
+    status?: boolean
+    priority?: boolean
+    source?: boolean
+    tags?: boolean
+    customFields?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    lastContactAt?: boolean
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["client"]>
+
+  export type ClientSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    organizationId?: boolean
+    name?: boolean
+    companyName?: boolean
+    website?: boolean
+    description?: boolean
+    logo?: boolean
+    primaryEmail?: boolean
+    primaryPhone?: boolean
+    industry?: boolean
+    companySize?: boolean
+    annualRevenue?: boolean
+    status?: boolean
+    priority?: boolean
+    source?: boolean
+    tags?: boolean
+    customFields?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    lastContactAt?: boolean
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["client"]>
+
+  export type ClientSelectScalar = {
+    id?: boolean
+    organizationId?: boolean
+    name?: boolean
+    companyName?: boolean
+    website?: boolean
+    description?: boolean
+    logo?: boolean
+    primaryEmail?: boolean
+    primaryPhone?: boolean
+    industry?: boolean
+    companySize?: boolean
+    annualRevenue?: boolean
+    status?: boolean
+    priority?: boolean
+    source?: boolean
+    tags?: boolean
+    customFields?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    lastContactAt?: boolean
+  }
+
+  export type ClientOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "organizationId" | "name" | "companyName" | "website" | "description" | "logo" | "primaryEmail" | "primaryPhone" | "industry" | "companySize" | "annualRevenue" | "status" | "priority" | "source" | "tags" | "customFields" | "createdAt" | "updatedAt" | "lastContactAt", ExtArgs["result"]["client"]>
+  export type ClientInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+    contacts?: boolean | Client$contactsArgs<ExtArgs>
+    _count?: boolean | ClientCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type ClientIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+  }
+  export type ClientIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+  }
+
+  export type $ClientPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Client"
+    objects: {
+      organization: Prisma.$OrganizationPayload<ExtArgs>
+      contacts: Prisma.$ClientContactPayload<ExtArgs>[]
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      organizationId: string
+      name: string
+      companyName: string | null
+      website: string | null
+      description: string | null
+      logo: string | null
+      primaryEmail: string | null
+      primaryPhone: string | null
+      industry: string | null
+      companySize: string | null
+      annualRevenue: string | null
+      status: string
+      priority: string
+      source: string | null
+      tags: string[]
+      customFields: Prisma.JsonValue | null
+      createdAt: Date
+      updatedAt: Date
+      lastContactAt: Date | null
+    }, ExtArgs["result"]["client"]>
+    composites: {}
+  }
+
+  type ClientGetPayload<S extends boolean | null | undefined | ClientDefaultArgs> = $Result.GetResult<Prisma.$ClientPayload, S>
+
+  type ClientCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClientFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClientCountAggregateInputType | true
+    }
+
+  export interface ClientDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Client'], meta: { name: 'Client' } }
+    /**
+     * Find zero or one Client that matches the filter.
+     * @param {ClientFindUniqueArgs} args - Arguments to find a Client
+     * @example
+     * // Get one Client
+     * const client = await prisma.client.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClientFindUniqueArgs>(args: SelectSubset<T, ClientFindUniqueArgs<ExtArgs>>): Prisma__ClientClient<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Client that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClientFindUniqueOrThrowArgs} args - Arguments to find a Client
+     * @example
+     * // Get one Client
+     * const client = await prisma.client.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClientFindUniqueOrThrowArgs>(args: SelectSubset<T, ClientFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClientClient<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Client that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientFindFirstArgs} args - Arguments to find a Client
+     * @example
+     * // Get one Client
+     * const client = await prisma.client.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClientFindFirstArgs>(args?: SelectSubset<T, ClientFindFirstArgs<ExtArgs>>): Prisma__ClientClient<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Client that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientFindFirstOrThrowArgs} args - Arguments to find a Client
+     * @example
+     * // Get one Client
+     * const client = await prisma.client.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClientFindFirstOrThrowArgs>(args?: SelectSubset<T, ClientFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClientClient<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Clients that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Clients
+     * const clients = await prisma.client.findMany()
+     * 
+     * // Get first 10 Clients
+     * const clients = await prisma.client.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const clientWithIdOnly = await prisma.client.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClientFindManyArgs>(args?: SelectSubset<T, ClientFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Client.
+     * @param {ClientCreateArgs} args - Arguments to create a Client.
+     * @example
+     * // Create one Client
+     * const Client = await prisma.client.create({
+     *   data: {
+     *     // ... data to create a Client
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClientCreateArgs>(args: SelectSubset<T, ClientCreateArgs<ExtArgs>>): Prisma__ClientClient<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Clients.
+     * @param {ClientCreateManyArgs} args - Arguments to create many Clients.
+     * @example
+     * // Create many Clients
+     * const client = await prisma.client.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClientCreateManyArgs>(args?: SelectSubset<T, ClientCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Clients and returns the data saved in the database.
+     * @param {ClientCreateManyAndReturnArgs} args - Arguments to create many Clients.
+     * @example
+     * // Create many Clients
+     * const client = await prisma.client.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Clients and only return the `id`
+     * const clientWithIdOnly = await prisma.client.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClientCreateManyAndReturnArgs>(args?: SelectSubset<T, ClientCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Client.
+     * @param {ClientDeleteArgs} args - Arguments to delete one Client.
+     * @example
+     * // Delete one Client
+     * const Client = await prisma.client.delete({
+     *   where: {
+     *     // ... filter to delete one Client
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClientDeleteArgs>(args: SelectSubset<T, ClientDeleteArgs<ExtArgs>>): Prisma__ClientClient<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Client.
+     * @param {ClientUpdateArgs} args - Arguments to update one Client.
+     * @example
+     * // Update one Client
+     * const client = await prisma.client.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClientUpdateArgs>(args: SelectSubset<T, ClientUpdateArgs<ExtArgs>>): Prisma__ClientClient<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Clients.
+     * @param {ClientDeleteManyArgs} args - Arguments to filter Clients to delete.
+     * @example
+     * // Delete a few Clients
+     * const { count } = await prisma.client.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClientDeleteManyArgs>(args?: SelectSubset<T, ClientDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Clients.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Clients
+     * const client = await prisma.client.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClientUpdateManyArgs>(args: SelectSubset<T, ClientUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Clients and returns the data updated in the database.
+     * @param {ClientUpdateManyAndReturnArgs} args - Arguments to update many Clients.
+     * @example
+     * // Update many Clients
+     * const client = await prisma.client.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Clients and only return the `id`
+     * const clientWithIdOnly = await prisma.client.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClientUpdateManyAndReturnArgs>(args: SelectSubset<T, ClientUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Client.
+     * @param {ClientUpsertArgs} args - Arguments to update or create a Client.
+     * @example
+     * // Update or create a Client
+     * const client = await prisma.client.upsert({
+     *   create: {
+     *     // ... data to create a Client
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Client we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClientUpsertArgs>(args: SelectSubset<T, ClientUpsertArgs<ExtArgs>>): Prisma__ClientClient<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Clients.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientCountArgs} args - Arguments to filter Clients to count.
+     * @example
+     * // Count the number of Clients
+     * const count = await prisma.client.count({
+     *   where: {
+     *     // ... the filter for the Clients we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClientCountArgs>(
+      args?: Subset<T, ClientCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClientCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Client.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClientAggregateArgs>(args: Subset<T, ClientAggregateArgs>): Prisma.PrismaPromise<GetClientAggregateType<T>>
+
+    /**
+     * Group by Client.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClientGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClientGroupByArgs['orderBy'] }
+        : { orderBy?: ClientGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClientGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClientGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Client model
+   */
+  readonly fields: ClientFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Client.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClientClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    organization<T extends OrganizationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganizationDefaultArgs<ExtArgs>>): Prisma__OrganizationClient<$Result.GetResult<Prisma.$OrganizationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    contacts<T extends Client$contactsArgs<ExtArgs> = {}>(args?: Subset<T, Client$contactsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Client model
+   */
+  interface ClientFieldRefs {
+    readonly id: FieldRef<"Client", 'String'>
+    readonly organizationId: FieldRef<"Client", 'String'>
+    readonly name: FieldRef<"Client", 'String'>
+    readonly companyName: FieldRef<"Client", 'String'>
+    readonly website: FieldRef<"Client", 'String'>
+    readonly description: FieldRef<"Client", 'String'>
+    readonly logo: FieldRef<"Client", 'String'>
+    readonly primaryEmail: FieldRef<"Client", 'String'>
+    readonly primaryPhone: FieldRef<"Client", 'String'>
+    readonly industry: FieldRef<"Client", 'String'>
+    readonly companySize: FieldRef<"Client", 'String'>
+    readonly annualRevenue: FieldRef<"Client", 'String'>
+    readonly status: FieldRef<"Client", 'String'>
+    readonly priority: FieldRef<"Client", 'String'>
+    readonly source: FieldRef<"Client", 'String'>
+    readonly tags: FieldRef<"Client", 'String[]'>
+    readonly customFields: FieldRef<"Client", 'Json'>
+    readonly createdAt: FieldRef<"Client", 'DateTime'>
+    readonly updatedAt: FieldRef<"Client", 'DateTime'>
+    readonly lastContactAt: FieldRef<"Client", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Client findUnique
+   */
+  export type ClientFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+    /**
+     * Filter, which Client to fetch.
+     */
+    where: ClientWhereUniqueInput
+  }
+
+  /**
+   * Client findUniqueOrThrow
+   */
+  export type ClientFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+    /**
+     * Filter, which Client to fetch.
+     */
+    where: ClientWhereUniqueInput
+  }
+
+  /**
+   * Client findFirst
+   */
+  export type ClientFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+    /**
+     * Filter, which Client to fetch.
+     */
+    where?: ClientWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clients to fetch.
+     */
+    orderBy?: ClientOrderByWithRelationInput | ClientOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Clients.
+     */
+    cursor?: ClientWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clients from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clients.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Clients.
+     */
+    distinct?: ClientScalarFieldEnum | ClientScalarFieldEnum[]
+  }
+
+  /**
+   * Client findFirstOrThrow
+   */
+  export type ClientFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+    /**
+     * Filter, which Client to fetch.
+     */
+    where?: ClientWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clients to fetch.
+     */
+    orderBy?: ClientOrderByWithRelationInput | ClientOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Clients.
+     */
+    cursor?: ClientWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clients from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clients.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Clients.
+     */
+    distinct?: ClientScalarFieldEnum | ClientScalarFieldEnum[]
+  }
+
+  /**
+   * Client findMany
+   */
+  export type ClientFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+    /**
+     * Filter, which Clients to fetch.
+     */
+    where?: ClientWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Clients to fetch.
+     */
+    orderBy?: ClientOrderByWithRelationInput | ClientOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Clients.
+     */
+    cursor?: ClientWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Clients from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Clients.
+     */
+    skip?: number
+    distinct?: ClientScalarFieldEnum | ClientScalarFieldEnum[]
+  }
+
+  /**
+   * Client create
+   */
+  export type ClientCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Client.
+     */
+    data: XOR<ClientCreateInput, ClientUncheckedCreateInput>
+  }
+
+  /**
+   * Client createMany
+   */
+  export type ClientCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Clients.
+     */
+    data: ClientCreateManyInput | ClientCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Client createManyAndReturn
+   */
+  export type ClientCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * The data used to create many Clients.
+     */
+    data: ClientCreateManyInput | ClientCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Client update
+   */
+  export type ClientUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Client.
+     */
+    data: XOR<ClientUpdateInput, ClientUncheckedUpdateInput>
+    /**
+     * Choose, which Client to update.
+     */
+    where: ClientWhereUniqueInput
+  }
+
+  /**
+   * Client updateMany
+   */
+  export type ClientUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Clients.
+     */
+    data: XOR<ClientUpdateManyMutationInput, ClientUncheckedUpdateManyInput>
+    /**
+     * Filter which Clients to update
+     */
+    where?: ClientWhereInput
+    /**
+     * Limit how many Clients to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Client updateManyAndReturn
+   */
+  export type ClientUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * The data used to update Clients.
+     */
+    data: XOR<ClientUpdateManyMutationInput, ClientUncheckedUpdateManyInput>
+    /**
+     * Filter which Clients to update
+     */
+    where?: ClientWhereInput
+    /**
+     * Limit how many Clients to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Client upsert
+   */
+  export type ClientUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Client to update in case it exists.
+     */
+    where: ClientWhereUniqueInput
+    /**
+     * In case the Client found by the `where` argument doesn't exist, create a new Client with this data.
+     */
+    create: XOR<ClientCreateInput, ClientUncheckedCreateInput>
+    /**
+     * In case the Client was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClientUpdateInput, ClientUncheckedUpdateInput>
+  }
+
+  /**
+   * Client delete
+   */
+  export type ClientDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+    /**
+     * Filter which Client to delete.
+     */
+    where: ClientWhereUniqueInput
+  }
+
+  /**
+   * Client deleteMany
+   */
+  export type ClientDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Clients to delete
+     */
+    where?: ClientWhereInput
+    /**
+     * Limit how many Clients to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Client.contacts
+   */
+  export type Client$contactsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    where?: ClientContactWhereInput
+    orderBy?: ClientContactOrderByWithRelationInput | ClientContactOrderByWithRelationInput[]
+    cursor?: ClientContactWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ClientContactScalarFieldEnum | ClientContactScalarFieldEnum[]
+  }
+
+  /**
+   * Client without action
+   */
+  export type ClientDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Client
+     */
+    select?: ClientSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Client
+     */
+    omit?: ClientOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model ClientContact
+   */
+
+  export type AggregateClientContact = {
+    _count: ClientContactCountAggregateOutputType | null
+    _min: ClientContactMinAggregateOutputType | null
+    _max: ClientContactMaxAggregateOutputType | null
+  }
+
+  export type ClientContactMinAggregateOutputType = {
+    id: string | null
+    clientId: string | null
+    organizationId: string | null
+    firstName: string | null
+    lastName: string | null
+    email: string | null
+    phone: string | null
+    position: string | null
+    department: string | null
+    isPrimary: boolean | null
+    preferredContactMethod: string | null
+    timezone: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClientContactMaxAggregateOutputType = {
+    id: string | null
+    clientId: string | null
+    organizationId: string | null
+    firstName: string | null
+    lastName: string | null
+    email: string | null
+    phone: string | null
+    position: string | null
+    department: string | null
+    isPrimary: boolean | null
+    preferredContactMethod: string | null
+    timezone: string | null
+    isActive: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type ClientContactCountAggregateOutputType = {
+    id: number
+    clientId: number
+    organizationId: number
+    firstName: number
+    lastName: number
+    email: number
+    phone: number
+    position: number
+    department: number
+    isPrimary: number
+    preferredContactMethod: number
+    timezone: number
+    isActive: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type ClientContactMinAggregateInputType = {
+    id?: true
+    clientId?: true
+    organizationId?: true
+    firstName?: true
+    lastName?: true
+    email?: true
+    phone?: true
+    position?: true
+    department?: true
+    isPrimary?: true
+    preferredContactMethod?: true
+    timezone?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClientContactMaxAggregateInputType = {
+    id?: true
+    clientId?: true
+    organizationId?: true
+    firstName?: true
+    lastName?: true
+    email?: true
+    phone?: true
+    position?: true
+    department?: true
+    isPrimary?: true
+    preferredContactMethod?: true
+    timezone?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ClientContactCountAggregateInputType = {
+    id?: true
+    clientId?: true
+    organizationId?: true
+    firstName?: true
+    lastName?: true
+    email?: true
+    phone?: true
+    position?: true
+    department?: true
+    isPrimary?: true
+    preferredContactMethod?: true
+    timezone?: true
+    isActive?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type ClientContactAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientContact to aggregate.
+     */
+    where?: ClientContactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientContacts to fetch.
+     */
+    orderBy?: ClientContactOrderByWithRelationInput | ClientContactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: ClientContactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientContacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientContacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned ClientContacts
+    **/
+    _count?: true | ClientContactCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: ClientContactMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: ClientContactMaxAggregateInputType
+  }
+
+  export type GetClientContactAggregateType<T extends ClientContactAggregateArgs> = {
+        [P in keyof T & keyof AggregateClientContact]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateClientContact[P]>
+      : GetScalarType<T[P], AggregateClientContact[P]>
+  }
+
+
+
+
+  export type ClientContactGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ClientContactWhereInput
+    orderBy?: ClientContactOrderByWithAggregationInput | ClientContactOrderByWithAggregationInput[]
+    by: ClientContactScalarFieldEnum[] | ClientContactScalarFieldEnum
+    having?: ClientContactScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: ClientContactCountAggregateInputType | true
+    _min?: ClientContactMinAggregateInputType
+    _max?: ClientContactMaxAggregateInputType
+  }
+
+  export type ClientContactGroupByOutputType = {
+    id: string
+    clientId: string
+    organizationId: string
+    firstName: string
+    lastName: string
+    email: string | null
+    phone: string | null
+    position: string | null
+    department: string | null
+    isPrimary: boolean
+    preferredContactMethod: string | null
+    timezone: string | null
+    isActive: boolean
+    createdAt: Date
+    updatedAt: Date
+    _count: ClientContactCountAggregateOutputType | null
+    _min: ClientContactMinAggregateOutputType | null
+    _max: ClientContactMaxAggregateOutputType | null
+  }
+
+  type GetClientContactGroupByPayload<T extends ClientContactGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<ClientContactGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof ClientContactGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], ClientContactGroupByOutputType[P]>
+            : GetScalarType<T[P], ClientContactGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type ClientContactSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    organizationId?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    email?: boolean
+    phone?: boolean
+    position?: boolean
+    department?: boolean
+    isPrimary?: boolean
+    preferredContactMethod?: boolean
+    timezone?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    client?: boolean | ClientDefaultArgs<ExtArgs>
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientContact"]>
+
+  export type ClientContactSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    organizationId?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    email?: boolean
+    phone?: boolean
+    position?: boolean
+    department?: boolean
+    isPrimary?: boolean
+    preferredContactMethod?: boolean
+    timezone?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    client?: boolean | ClientDefaultArgs<ExtArgs>
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientContact"]>
+
+  export type ClientContactSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    clientId?: boolean
+    organizationId?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    email?: boolean
+    phone?: boolean
+    position?: boolean
+    department?: boolean
+    isPrimary?: boolean
+    preferredContactMethod?: boolean
+    timezone?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    client?: boolean | ClientDefaultArgs<ExtArgs>
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["clientContact"]>
+
+  export type ClientContactSelectScalar = {
+    id?: boolean
+    clientId?: boolean
+    organizationId?: boolean
+    firstName?: boolean
+    lastName?: boolean
+    email?: boolean
+    phone?: boolean
+    position?: boolean
+    department?: boolean
+    isPrimary?: boolean
+    preferredContactMethod?: boolean
+    timezone?: boolean
+    isActive?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type ClientContactOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "clientId" | "organizationId" | "firstName" | "lastName" | "email" | "phone" | "position" | "department" | "isPrimary" | "preferredContactMethod" | "timezone" | "isActive" | "createdAt" | "updatedAt", ExtArgs["result"]["clientContact"]>
+  export type ClientContactInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | ClientDefaultArgs<ExtArgs>
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+  }
+  export type ClientContactIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | ClientDefaultArgs<ExtArgs>
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+  }
+  export type ClientContactIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    client?: boolean | ClientDefaultArgs<ExtArgs>
+    organization?: boolean | OrganizationDefaultArgs<ExtArgs>
+  }
+
+  export type $ClientContactPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "ClientContact"
+    objects: {
+      client: Prisma.$ClientPayload<ExtArgs>
+      organization: Prisma.$OrganizationPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      clientId: string
+      organizationId: string
+      firstName: string
+      lastName: string
+      email: string | null
+      phone: string | null
+      position: string | null
+      department: string | null
+      isPrimary: boolean
+      preferredContactMethod: string | null
+      timezone: string | null
+      isActive: boolean
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["clientContact"]>
+    composites: {}
+  }
+
+  type ClientContactGetPayload<S extends boolean | null | undefined | ClientContactDefaultArgs> = $Result.GetResult<Prisma.$ClientContactPayload, S>
+
+  type ClientContactCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ClientContactFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ClientContactCountAggregateInputType | true
+    }
+
+  export interface ClientContactDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['ClientContact'], meta: { name: 'ClientContact' } }
+    /**
+     * Find zero or one ClientContact that matches the filter.
+     * @param {ClientContactFindUniqueArgs} args - Arguments to find a ClientContact
+     * @example
+     * // Get one ClientContact
+     * const clientContact = await prisma.clientContact.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends ClientContactFindUniqueArgs>(args: SelectSubset<T, ClientContactFindUniqueArgs<ExtArgs>>): Prisma__ClientContactClient<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one ClientContact that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {ClientContactFindUniqueOrThrowArgs} args - Arguments to find a ClientContact
+     * @example
+     * // Get one ClientContact
+     * const clientContact = await prisma.clientContact.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends ClientContactFindUniqueOrThrowArgs>(args: SelectSubset<T, ClientContactFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ClientContactClient<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientContact that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientContactFindFirstArgs} args - Arguments to find a ClientContact
+     * @example
+     * // Get one ClientContact
+     * const clientContact = await prisma.clientContact.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends ClientContactFindFirstArgs>(args?: SelectSubset<T, ClientContactFindFirstArgs<ExtArgs>>): Prisma__ClientContactClient<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first ClientContact that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientContactFindFirstOrThrowArgs} args - Arguments to find a ClientContact
+     * @example
+     * // Get one ClientContact
+     * const clientContact = await prisma.clientContact.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends ClientContactFindFirstOrThrowArgs>(args?: SelectSubset<T, ClientContactFindFirstOrThrowArgs<ExtArgs>>): Prisma__ClientContactClient<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more ClientContacts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientContactFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all ClientContacts
+     * const clientContacts = await prisma.clientContact.findMany()
+     * 
+     * // Get first 10 ClientContacts
+     * const clientContacts = await prisma.clientContact.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const clientContactWithIdOnly = await prisma.clientContact.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends ClientContactFindManyArgs>(args?: SelectSubset<T, ClientContactFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a ClientContact.
+     * @param {ClientContactCreateArgs} args - Arguments to create a ClientContact.
+     * @example
+     * // Create one ClientContact
+     * const ClientContact = await prisma.clientContact.create({
+     *   data: {
+     *     // ... data to create a ClientContact
+     *   }
+     * })
+     * 
+     */
+    create<T extends ClientContactCreateArgs>(args: SelectSubset<T, ClientContactCreateArgs<ExtArgs>>): Prisma__ClientContactClient<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many ClientContacts.
+     * @param {ClientContactCreateManyArgs} args - Arguments to create many ClientContacts.
+     * @example
+     * // Create many ClientContacts
+     * const clientContact = await prisma.clientContact.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends ClientContactCreateManyArgs>(args?: SelectSubset<T, ClientContactCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many ClientContacts and returns the data saved in the database.
+     * @param {ClientContactCreateManyAndReturnArgs} args - Arguments to create many ClientContacts.
+     * @example
+     * // Create many ClientContacts
+     * const clientContact = await prisma.clientContact.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many ClientContacts and only return the `id`
+     * const clientContactWithIdOnly = await prisma.clientContact.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends ClientContactCreateManyAndReturnArgs>(args?: SelectSubset<T, ClientContactCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a ClientContact.
+     * @param {ClientContactDeleteArgs} args - Arguments to delete one ClientContact.
+     * @example
+     * // Delete one ClientContact
+     * const ClientContact = await prisma.clientContact.delete({
+     *   where: {
+     *     // ... filter to delete one ClientContact
+     *   }
+     * })
+     * 
+     */
+    delete<T extends ClientContactDeleteArgs>(args: SelectSubset<T, ClientContactDeleteArgs<ExtArgs>>): Prisma__ClientContactClient<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one ClientContact.
+     * @param {ClientContactUpdateArgs} args - Arguments to update one ClientContact.
+     * @example
+     * // Update one ClientContact
+     * const clientContact = await prisma.clientContact.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends ClientContactUpdateArgs>(args: SelectSubset<T, ClientContactUpdateArgs<ExtArgs>>): Prisma__ClientContactClient<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more ClientContacts.
+     * @param {ClientContactDeleteManyArgs} args - Arguments to filter ClientContacts to delete.
+     * @example
+     * // Delete a few ClientContacts
+     * const { count } = await prisma.clientContact.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends ClientContactDeleteManyArgs>(args?: SelectSubset<T, ClientContactDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientContacts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientContactUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many ClientContacts
+     * const clientContact = await prisma.clientContact.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends ClientContactUpdateManyArgs>(args: SelectSubset<T, ClientContactUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more ClientContacts and returns the data updated in the database.
+     * @param {ClientContactUpdateManyAndReturnArgs} args - Arguments to update many ClientContacts.
+     * @example
+     * // Update many ClientContacts
+     * const clientContact = await prisma.clientContact.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more ClientContacts and only return the `id`
+     * const clientContactWithIdOnly = await prisma.clientContact.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends ClientContactUpdateManyAndReturnArgs>(args: SelectSubset<T, ClientContactUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one ClientContact.
+     * @param {ClientContactUpsertArgs} args - Arguments to update or create a ClientContact.
+     * @example
+     * // Update or create a ClientContact
+     * const clientContact = await prisma.clientContact.upsert({
+     *   create: {
+     *     // ... data to create a ClientContact
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the ClientContact we want to update
+     *   }
+     * })
+     */
+    upsert<T extends ClientContactUpsertArgs>(args: SelectSubset<T, ClientContactUpsertArgs<ExtArgs>>): Prisma__ClientContactClient<$Result.GetResult<Prisma.$ClientContactPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of ClientContacts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientContactCountArgs} args - Arguments to filter ClientContacts to count.
+     * @example
+     * // Count the number of ClientContacts
+     * const count = await prisma.clientContact.count({
+     *   where: {
+     *     // ... the filter for the ClientContacts we want to count
+     *   }
+     * })
+    **/
+    count<T extends ClientContactCountArgs>(
+      args?: Subset<T, ClientContactCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], ClientContactCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a ClientContact.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientContactAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends ClientContactAggregateArgs>(args: Subset<T, ClientContactAggregateArgs>): Prisma.PrismaPromise<GetClientContactAggregateType<T>>
+
+    /**
+     * Group by ClientContact.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {ClientContactGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends ClientContactGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: ClientContactGroupByArgs['orderBy'] }
+        : { orderBy?: ClientContactGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, ClientContactGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetClientContactGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the ClientContact model
+   */
+  readonly fields: ClientContactFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for ClientContact.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__ClientContactClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    client<T extends ClientDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ClientDefaultArgs<ExtArgs>>): Prisma__ClientClient<$Result.GetResult<Prisma.$ClientPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    organization<T extends OrganizationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OrganizationDefaultArgs<ExtArgs>>): Prisma__OrganizationClient<$Result.GetResult<Prisma.$OrganizationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the ClientContact model
+   */
+  interface ClientContactFieldRefs {
+    readonly id: FieldRef<"ClientContact", 'String'>
+    readonly clientId: FieldRef<"ClientContact", 'String'>
+    readonly organizationId: FieldRef<"ClientContact", 'String'>
+    readonly firstName: FieldRef<"ClientContact", 'String'>
+    readonly lastName: FieldRef<"ClientContact", 'String'>
+    readonly email: FieldRef<"ClientContact", 'String'>
+    readonly phone: FieldRef<"ClientContact", 'String'>
+    readonly position: FieldRef<"ClientContact", 'String'>
+    readonly department: FieldRef<"ClientContact", 'String'>
+    readonly isPrimary: FieldRef<"ClientContact", 'Boolean'>
+    readonly preferredContactMethod: FieldRef<"ClientContact", 'String'>
+    readonly timezone: FieldRef<"ClientContact", 'String'>
+    readonly isActive: FieldRef<"ClientContact", 'Boolean'>
+    readonly createdAt: FieldRef<"ClientContact", 'DateTime'>
+    readonly updatedAt: FieldRef<"ClientContact", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * ClientContact findUnique
+   */
+  export type ClientContactFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientContact to fetch.
+     */
+    where: ClientContactWhereUniqueInput
+  }
+
+  /**
+   * ClientContact findUniqueOrThrow
+   */
+  export type ClientContactFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientContact to fetch.
+     */
+    where: ClientContactWhereUniqueInput
+  }
+
+  /**
+   * ClientContact findFirst
+   */
+  export type ClientContactFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientContact to fetch.
+     */
+    where?: ClientContactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientContacts to fetch.
+     */
+    orderBy?: ClientContactOrderByWithRelationInput | ClientContactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientContacts.
+     */
+    cursor?: ClientContactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientContacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientContacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientContacts.
+     */
+    distinct?: ClientContactScalarFieldEnum | ClientContactScalarFieldEnum[]
+  }
+
+  /**
+   * ClientContact findFirstOrThrow
+   */
+  export type ClientContactFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientContact to fetch.
+     */
+    where?: ClientContactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientContacts to fetch.
+     */
+    orderBy?: ClientContactOrderByWithRelationInput | ClientContactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for ClientContacts.
+     */
+    cursor?: ClientContactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientContacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientContacts.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of ClientContacts.
+     */
+    distinct?: ClientContactScalarFieldEnum | ClientContactScalarFieldEnum[]
+  }
+
+  /**
+   * ClientContact findMany
+   */
+  export type ClientContactFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    /**
+     * Filter, which ClientContacts to fetch.
+     */
+    where?: ClientContactWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of ClientContacts to fetch.
+     */
+    orderBy?: ClientContactOrderByWithRelationInput | ClientContactOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing ClientContacts.
+     */
+    cursor?: ClientContactWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` ClientContacts from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` ClientContacts.
+     */
+    skip?: number
+    distinct?: ClientContactScalarFieldEnum | ClientContactScalarFieldEnum[]
+  }
+
+  /**
+   * ClientContact create
+   */
+  export type ClientContactCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    /**
+     * The data needed to create a ClientContact.
+     */
+    data: XOR<ClientContactCreateInput, ClientContactUncheckedCreateInput>
+  }
+
+  /**
+   * ClientContact createMany
+   */
+  export type ClientContactCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many ClientContacts.
+     */
+    data: ClientContactCreateManyInput | ClientContactCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * ClientContact createManyAndReturn
+   */
+  export type ClientContactCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * The data used to create many ClientContacts.
+     */
+    data: ClientContactCreateManyInput | ClientContactCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClientContact update
+   */
+  export type ClientContactUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    /**
+     * The data needed to update a ClientContact.
+     */
+    data: XOR<ClientContactUpdateInput, ClientContactUncheckedUpdateInput>
+    /**
+     * Choose, which ClientContact to update.
+     */
+    where: ClientContactWhereUniqueInput
+  }
+
+  /**
+   * ClientContact updateMany
+   */
+  export type ClientContactUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update ClientContacts.
+     */
+    data: XOR<ClientContactUpdateManyMutationInput, ClientContactUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientContacts to update
+     */
+    where?: ClientContactWhereInput
+    /**
+     * Limit how many ClientContacts to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientContact updateManyAndReturn
+   */
+  export type ClientContactUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * The data used to update ClientContacts.
+     */
+    data: XOR<ClientContactUpdateManyMutationInput, ClientContactUncheckedUpdateManyInput>
+    /**
+     * Filter which ClientContacts to update
+     */
+    where?: ClientContactWhereInput
+    /**
+     * Limit how many ClientContacts to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * ClientContact upsert
+   */
+  export type ClientContactUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    /**
+     * The filter to search for the ClientContact to update in case it exists.
+     */
+    where: ClientContactWhereUniqueInput
+    /**
+     * In case the ClientContact found by the `where` argument doesn't exist, create a new ClientContact with this data.
+     */
+    create: XOR<ClientContactCreateInput, ClientContactUncheckedCreateInput>
+    /**
+     * In case the ClientContact was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ClientContactUpdateInput, ClientContactUncheckedUpdateInput>
+  }
+
+  /**
+   * ClientContact delete
+   */
+  export type ClientContactDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+    /**
+     * Filter which ClientContact to delete.
+     */
+    where: ClientContactWhereUniqueInput
+  }
+
+  /**
+   * ClientContact deleteMany
+   */
+  export type ClientContactDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which ClientContacts to delete
+     */
+    where?: ClientContactWhereInput
+    /**
+     * Limit how many ClientContacts to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * ClientContact without action
+   */
+  export type ClientContactDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the ClientContact
+     */
+    select?: ClientContactSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the ClientContact
+     */
+    omit?: ClientContactOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ClientContactInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -10803,12 +13561,67 @@ export namespace Prisma {
   export type AuditLogScalarFieldEnum = (typeof AuditLogScalarFieldEnum)[keyof typeof AuditLogScalarFieldEnum]
 
 
+  export const ClientScalarFieldEnum: {
+    id: 'id',
+    organizationId: 'organizationId',
+    name: 'name',
+    companyName: 'companyName',
+    website: 'website',
+    description: 'description',
+    logo: 'logo',
+    primaryEmail: 'primaryEmail',
+    primaryPhone: 'primaryPhone',
+    industry: 'industry',
+    companySize: 'companySize',
+    annualRevenue: 'annualRevenue',
+    status: 'status',
+    priority: 'priority',
+    source: 'source',
+    tags: 'tags',
+    customFields: 'customFields',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    lastContactAt: 'lastContactAt'
+  };
+
+  export type ClientScalarFieldEnum = (typeof ClientScalarFieldEnum)[keyof typeof ClientScalarFieldEnum]
+
+
+  export const ClientContactScalarFieldEnum: {
+    id: 'id',
+    clientId: 'clientId',
+    organizationId: 'organizationId',
+    firstName: 'firstName',
+    lastName: 'lastName',
+    email: 'email',
+    phone: 'phone',
+    position: 'position',
+    department: 'department',
+    isPrimary: 'isPrimary',
+    preferredContactMethod: 'preferredContactMethod',
+    timezone: 'timezone',
+    isActive: 'isActive',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type ClientContactScalarFieldEnum = (typeof ClientContactScalarFieldEnum)[keyof typeof ClientContactScalarFieldEnum]
+
+
   export const SortOrder: {
     asc: 'asc',
     desc: 'desc'
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const NullableJsonNullValueInput: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull
+  };
+
+  export type NullableJsonNullValueInput = (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput]
 
 
   export const QueryMode: {
@@ -10825,6 +13638,15 @@ export namespace Prisma {
   };
 
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
   /**
@@ -10864,6 +13686,20 @@ export namespace Prisma {
    * Reference to a field of type 'DateTime[]'
    */
   export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
     
 
 
@@ -11226,6 +14062,8 @@ export namespace Prisma {
     members?: MemberListRelationFilter
     invitations?: InvitationListRelationFilter
     auditLogs?: AuditLogListRelationFilter
+    Client?: ClientListRelationFilter
+    ClientContact?: ClientContactListRelationFilter
   }
 
   export type OrganizationOrderByWithRelationInput = {
@@ -11238,6 +14076,8 @@ export namespace Prisma {
     members?: MemberOrderByRelationAggregateInput
     invitations?: InvitationOrderByRelationAggregateInput
     auditLogs?: AuditLogOrderByRelationAggregateInput
+    Client?: ClientOrderByRelationAggregateInput
+    ClientContact?: ClientContactOrderByRelationAggregateInput
   }
 
   export type OrganizationWhereUniqueInput = Prisma.AtLeast<{
@@ -11253,6 +14093,8 @@ export namespace Prisma {
     members?: MemberListRelationFilter
     invitations?: InvitationListRelationFilter
     auditLogs?: AuditLogListRelationFilter
+    Client?: ClientListRelationFilter
+    ClientContact?: ClientContactListRelationFilter
   }, "id" | "slug">
 
   export type OrganizationOrderByWithAggregationInput = {
@@ -11501,6 +14343,247 @@ export namespace Prisma {
     metadata?: StringNullableWithAggregatesFilter<"AuditLog"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"AuditLog"> | Date | string
     organizationId?: StringNullableWithAggregatesFilter<"AuditLog"> | string | null
+  }
+
+  export type ClientWhereInput = {
+    AND?: ClientWhereInput | ClientWhereInput[]
+    OR?: ClientWhereInput[]
+    NOT?: ClientWhereInput | ClientWhereInput[]
+    id?: StringFilter<"Client"> | string
+    organizationId?: StringFilter<"Client"> | string
+    name?: StringFilter<"Client"> | string
+    companyName?: StringNullableFilter<"Client"> | string | null
+    website?: StringNullableFilter<"Client"> | string | null
+    description?: StringNullableFilter<"Client"> | string | null
+    logo?: StringNullableFilter<"Client"> | string | null
+    primaryEmail?: StringNullableFilter<"Client"> | string | null
+    primaryPhone?: StringNullableFilter<"Client"> | string | null
+    industry?: StringNullableFilter<"Client"> | string | null
+    companySize?: StringNullableFilter<"Client"> | string | null
+    annualRevenue?: StringNullableFilter<"Client"> | string | null
+    status?: StringFilter<"Client"> | string
+    priority?: StringFilter<"Client"> | string
+    source?: StringNullableFilter<"Client"> | string | null
+    tags?: StringNullableListFilter<"Client">
+    customFields?: JsonNullableFilter<"Client">
+    createdAt?: DateTimeFilter<"Client"> | Date | string
+    updatedAt?: DateTimeFilter<"Client"> | Date | string
+    lastContactAt?: DateTimeNullableFilter<"Client"> | Date | string | null
+    organization?: XOR<OrganizationScalarRelationFilter, OrganizationWhereInput>
+    contacts?: ClientContactListRelationFilter
+  }
+
+  export type ClientOrderByWithRelationInput = {
+    id?: SortOrder
+    organizationId?: SortOrder
+    name?: SortOrder
+    companyName?: SortOrderInput | SortOrder
+    website?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    logo?: SortOrderInput | SortOrder
+    primaryEmail?: SortOrderInput | SortOrder
+    primaryPhone?: SortOrderInput | SortOrder
+    industry?: SortOrderInput | SortOrder
+    companySize?: SortOrderInput | SortOrder
+    annualRevenue?: SortOrderInput | SortOrder
+    status?: SortOrder
+    priority?: SortOrder
+    source?: SortOrderInput | SortOrder
+    tags?: SortOrder
+    customFields?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    lastContactAt?: SortOrderInput | SortOrder
+    organization?: OrganizationOrderByWithRelationInput
+    contacts?: ClientContactOrderByRelationAggregateInput
+  }
+
+  export type ClientWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ClientWhereInput | ClientWhereInput[]
+    OR?: ClientWhereInput[]
+    NOT?: ClientWhereInput | ClientWhereInput[]
+    organizationId?: StringFilter<"Client"> | string
+    name?: StringFilter<"Client"> | string
+    companyName?: StringNullableFilter<"Client"> | string | null
+    website?: StringNullableFilter<"Client"> | string | null
+    description?: StringNullableFilter<"Client"> | string | null
+    logo?: StringNullableFilter<"Client"> | string | null
+    primaryEmail?: StringNullableFilter<"Client"> | string | null
+    primaryPhone?: StringNullableFilter<"Client"> | string | null
+    industry?: StringNullableFilter<"Client"> | string | null
+    companySize?: StringNullableFilter<"Client"> | string | null
+    annualRevenue?: StringNullableFilter<"Client"> | string | null
+    status?: StringFilter<"Client"> | string
+    priority?: StringFilter<"Client"> | string
+    source?: StringNullableFilter<"Client"> | string | null
+    tags?: StringNullableListFilter<"Client">
+    customFields?: JsonNullableFilter<"Client">
+    createdAt?: DateTimeFilter<"Client"> | Date | string
+    updatedAt?: DateTimeFilter<"Client"> | Date | string
+    lastContactAt?: DateTimeNullableFilter<"Client"> | Date | string | null
+    organization?: XOR<OrganizationScalarRelationFilter, OrganizationWhereInput>
+    contacts?: ClientContactListRelationFilter
+  }, "id">
+
+  export type ClientOrderByWithAggregationInput = {
+    id?: SortOrder
+    organizationId?: SortOrder
+    name?: SortOrder
+    companyName?: SortOrderInput | SortOrder
+    website?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    logo?: SortOrderInput | SortOrder
+    primaryEmail?: SortOrderInput | SortOrder
+    primaryPhone?: SortOrderInput | SortOrder
+    industry?: SortOrderInput | SortOrder
+    companySize?: SortOrderInput | SortOrder
+    annualRevenue?: SortOrderInput | SortOrder
+    status?: SortOrder
+    priority?: SortOrder
+    source?: SortOrderInput | SortOrder
+    tags?: SortOrder
+    customFields?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    lastContactAt?: SortOrderInput | SortOrder
+    _count?: ClientCountOrderByAggregateInput
+    _max?: ClientMaxOrderByAggregateInput
+    _min?: ClientMinOrderByAggregateInput
+  }
+
+  export type ClientScalarWhereWithAggregatesInput = {
+    AND?: ClientScalarWhereWithAggregatesInput | ClientScalarWhereWithAggregatesInput[]
+    OR?: ClientScalarWhereWithAggregatesInput[]
+    NOT?: ClientScalarWhereWithAggregatesInput | ClientScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Client"> | string
+    organizationId?: StringWithAggregatesFilter<"Client"> | string
+    name?: StringWithAggregatesFilter<"Client"> | string
+    companyName?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    website?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    logo?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    primaryEmail?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    primaryPhone?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    industry?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    companySize?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    annualRevenue?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    status?: StringWithAggregatesFilter<"Client"> | string
+    priority?: StringWithAggregatesFilter<"Client"> | string
+    source?: StringNullableWithAggregatesFilter<"Client"> | string | null
+    tags?: StringNullableListFilter<"Client">
+    customFields?: JsonNullableWithAggregatesFilter<"Client">
+    createdAt?: DateTimeWithAggregatesFilter<"Client"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Client"> | Date | string
+    lastContactAt?: DateTimeNullableWithAggregatesFilter<"Client"> | Date | string | null
+  }
+
+  export type ClientContactWhereInput = {
+    AND?: ClientContactWhereInput | ClientContactWhereInput[]
+    OR?: ClientContactWhereInput[]
+    NOT?: ClientContactWhereInput | ClientContactWhereInput[]
+    id?: StringFilter<"ClientContact"> | string
+    clientId?: StringFilter<"ClientContact"> | string
+    organizationId?: StringFilter<"ClientContact"> | string
+    firstName?: StringFilter<"ClientContact"> | string
+    lastName?: StringFilter<"ClientContact"> | string
+    email?: StringNullableFilter<"ClientContact"> | string | null
+    phone?: StringNullableFilter<"ClientContact"> | string | null
+    position?: StringNullableFilter<"ClientContact"> | string | null
+    department?: StringNullableFilter<"ClientContact"> | string | null
+    isPrimary?: BoolFilter<"ClientContact"> | boolean
+    preferredContactMethod?: StringNullableFilter<"ClientContact"> | string | null
+    timezone?: StringNullableFilter<"ClientContact"> | string | null
+    isActive?: BoolFilter<"ClientContact"> | boolean
+    createdAt?: DateTimeFilter<"ClientContact"> | Date | string
+    updatedAt?: DateTimeFilter<"ClientContact"> | Date | string
+    client?: XOR<ClientScalarRelationFilter, ClientWhereInput>
+    organization?: XOR<OrganizationScalarRelationFilter, OrganizationWhereInput>
+  }
+
+  export type ClientContactOrderByWithRelationInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    organizationId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    position?: SortOrderInput | SortOrder
+    department?: SortOrderInput | SortOrder
+    isPrimary?: SortOrder
+    preferredContactMethod?: SortOrderInput | SortOrder
+    timezone?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    client?: ClientOrderByWithRelationInput
+    organization?: OrganizationOrderByWithRelationInput
+  }
+
+  export type ClientContactWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: ClientContactWhereInput | ClientContactWhereInput[]
+    OR?: ClientContactWhereInput[]
+    NOT?: ClientContactWhereInput | ClientContactWhereInput[]
+    clientId?: StringFilter<"ClientContact"> | string
+    organizationId?: StringFilter<"ClientContact"> | string
+    firstName?: StringFilter<"ClientContact"> | string
+    lastName?: StringFilter<"ClientContact"> | string
+    email?: StringNullableFilter<"ClientContact"> | string | null
+    phone?: StringNullableFilter<"ClientContact"> | string | null
+    position?: StringNullableFilter<"ClientContact"> | string | null
+    department?: StringNullableFilter<"ClientContact"> | string | null
+    isPrimary?: BoolFilter<"ClientContact"> | boolean
+    preferredContactMethod?: StringNullableFilter<"ClientContact"> | string | null
+    timezone?: StringNullableFilter<"ClientContact"> | string | null
+    isActive?: BoolFilter<"ClientContact"> | boolean
+    createdAt?: DateTimeFilter<"ClientContact"> | Date | string
+    updatedAt?: DateTimeFilter<"ClientContact"> | Date | string
+    client?: XOR<ClientScalarRelationFilter, ClientWhereInput>
+    organization?: XOR<OrganizationScalarRelationFilter, OrganizationWhereInput>
+  }, "id">
+
+  export type ClientContactOrderByWithAggregationInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    organizationId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrderInput | SortOrder
+    phone?: SortOrderInput | SortOrder
+    position?: SortOrderInput | SortOrder
+    department?: SortOrderInput | SortOrder
+    isPrimary?: SortOrder
+    preferredContactMethod?: SortOrderInput | SortOrder
+    timezone?: SortOrderInput | SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ClientContactCountOrderByAggregateInput
+    _max?: ClientContactMaxOrderByAggregateInput
+    _min?: ClientContactMinOrderByAggregateInput
+  }
+
+  export type ClientContactScalarWhereWithAggregatesInput = {
+    AND?: ClientContactScalarWhereWithAggregatesInput | ClientContactScalarWhereWithAggregatesInput[]
+    OR?: ClientContactScalarWhereWithAggregatesInput[]
+    NOT?: ClientContactScalarWhereWithAggregatesInput | ClientContactScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"ClientContact"> | string
+    clientId?: StringWithAggregatesFilter<"ClientContact"> | string
+    organizationId?: StringWithAggregatesFilter<"ClientContact"> | string
+    firstName?: StringWithAggregatesFilter<"ClientContact"> | string
+    lastName?: StringWithAggregatesFilter<"ClientContact"> | string
+    email?: StringNullableWithAggregatesFilter<"ClientContact"> | string | null
+    phone?: StringNullableWithAggregatesFilter<"ClientContact"> | string | null
+    position?: StringNullableWithAggregatesFilter<"ClientContact"> | string | null
+    department?: StringNullableWithAggregatesFilter<"ClientContact"> | string | null
+    isPrimary?: BoolWithAggregatesFilter<"ClientContact"> | boolean
+    preferredContactMethod?: StringNullableWithAggregatesFilter<"ClientContact"> | string | null
+    timezone?: StringNullableWithAggregatesFilter<"ClientContact"> | string | null
+    isActive?: BoolWithAggregatesFilter<"ClientContact"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"ClientContact"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"ClientContact"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -11895,6 +14978,8 @@ export namespace Prisma {
     members?: MemberCreateNestedManyWithoutOrganizationInput
     invitations?: InvitationCreateNestedManyWithoutOrganizationInput
     auditLogs?: AuditLogCreateNestedManyWithoutOrganizationInput
+    Client?: ClientCreateNestedManyWithoutOrganizationInput
+    ClientContact?: ClientContactCreateNestedManyWithoutOrganizationInput
   }
 
   export type OrganizationUncheckedCreateInput = {
@@ -11907,6 +14992,8 @@ export namespace Prisma {
     members?: MemberUncheckedCreateNestedManyWithoutOrganizationInput
     invitations?: InvitationUncheckedCreateNestedManyWithoutOrganizationInput
     auditLogs?: AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+    Client?: ClientUncheckedCreateNestedManyWithoutOrganizationInput
+    ClientContact?: ClientContactUncheckedCreateNestedManyWithoutOrganizationInput
   }
 
   export type OrganizationUpdateInput = {
@@ -11919,6 +15006,8 @@ export namespace Prisma {
     members?: MemberUpdateManyWithoutOrganizationNestedInput
     invitations?: InvitationUpdateManyWithoutOrganizationNestedInput
     auditLogs?: AuditLogUpdateManyWithoutOrganizationNestedInput
+    Client?: ClientUpdateManyWithoutOrganizationNestedInput
+    ClientContact?: ClientContactUpdateManyWithoutOrganizationNestedInput
   }
 
   export type OrganizationUncheckedUpdateInput = {
@@ -11931,6 +15020,8 @@ export namespace Prisma {
     members?: MemberUncheckedUpdateManyWithoutOrganizationNestedInput
     invitations?: InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
     auditLogs?: AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+    Client?: ClientUncheckedUpdateManyWithoutOrganizationNestedInput
+    ClientContact?: ClientContactUncheckedUpdateManyWithoutOrganizationNestedInput
   }
 
   export type OrganizationCreateManyInput = {
@@ -12190,6 +15281,294 @@ export namespace Prisma {
     metadata?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     organizationId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type ClientCreateInput = {
+    id?: string
+    name: string
+    companyName?: string | null
+    website?: string | null
+    description?: string | null
+    logo?: string | null
+    primaryEmail?: string | null
+    primaryPhone?: string | null
+    industry?: string | null
+    companySize?: string | null
+    annualRevenue?: string | null
+    status?: string
+    priority?: string
+    source?: string | null
+    tags?: ClientCreatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContactAt?: Date | string | null
+    organization: OrganizationCreateNestedOneWithoutClientInput
+    contacts?: ClientContactCreateNestedManyWithoutClientInput
+  }
+
+  export type ClientUncheckedCreateInput = {
+    id?: string
+    organizationId: string
+    name: string
+    companyName?: string | null
+    website?: string | null
+    description?: string | null
+    logo?: string | null
+    primaryEmail?: string | null
+    primaryPhone?: string | null
+    industry?: string | null
+    companySize?: string | null
+    annualRevenue?: string | null
+    status?: string
+    priority?: string
+    source?: string | null
+    tags?: ClientCreatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContactAt?: Date | string | null
+    contacts?: ClientContactUncheckedCreateNestedManyWithoutClientInput
+  }
+
+  export type ClientUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    companySize?: NullableStringFieldUpdateOperationsInput | string | null
+    annualRevenue?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: ClientUpdatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    organization?: OrganizationUpdateOneRequiredWithoutClientNestedInput
+    contacts?: ClientContactUpdateManyWithoutClientNestedInput
+  }
+
+  export type ClientUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organizationId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    companySize?: NullableStringFieldUpdateOperationsInput | string | null
+    annualRevenue?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: ClientUpdatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contacts?: ClientContactUncheckedUpdateManyWithoutClientNestedInput
+  }
+
+  export type ClientCreateManyInput = {
+    id?: string
+    organizationId: string
+    name: string
+    companyName?: string | null
+    website?: string | null
+    description?: string | null
+    logo?: string | null
+    primaryEmail?: string | null
+    primaryPhone?: string | null
+    industry?: string | null
+    companySize?: string | null
+    annualRevenue?: string | null
+    status?: string
+    priority?: string
+    source?: string | null
+    tags?: ClientCreatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContactAt?: Date | string | null
+  }
+
+  export type ClientUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    companySize?: NullableStringFieldUpdateOperationsInput | string | null
+    annualRevenue?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: ClientUpdatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ClientUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organizationId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    companySize?: NullableStringFieldUpdateOperationsInput | string | null
+    annualRevenue?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: ClientUpdatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ClientContactCreateInput = {
+    id?: string
+    firstName: string
+    lastName: string
+    email?: string | null
+    phone?: string | null
+    position?: string | null
+    department?: string | null
+    isPrimary?: boolean
+    preferredContactMethod?: string | null
+    timezone?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    client: ClientCreateNestedOneWithoutContactsInput
+    organization: OrganizationCreateNestedOneWithoutClientContactInput
+  }
+
+  export type ClientContactUncheckedCreateInput = {
+    id?: string
+    clientId: string
+    organizationId: string
+    firstName: string
+    lastName: string
+    email?: string | null
+    phone?: string | null
+    position?: string | null
+    department?: string | null
+    isPrimary?: boolean
+    preferredContactMethod?: string | null
+    timezone?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClientContactUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    preferredContactMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    client?: ClientUpdateOneRequiredWithoutContactsNestedInput
+    organization?: OrganizationUpdateOneRequiredWithoutClientContactNestedInput
+  }
+
+  export type ClientContactUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clientId?: StringFieldUpdateOperationsInput | string
+    organizationId?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    preferredContactMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientContactCreateManyInput = {
+    id?: string
+    clientId: string
+    organizationId: string
+    firstName: string
+    lastName: string
+    email?: string | null
+    phone?: string | null
+    position?: string | null
+    department?: string | null
+    isPrimary?: boolean
+    preferredContactMethod?: string | null
+    timezone?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClientContactUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    preferredContactMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientContactUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clientId?: StringFieldUpdateOperationsInput | string
+    organizationId?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    preferredContactMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -12550,6 +15929,26 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type ClientListRelationFilter = {
+    every?: ClientWhereInput
+    some?: ClientWhereInput
+    none?: ClientWhereInput
+  }
+
+  export type ClientContactListRelationFilter = {
+    every?: ClientContactWhereInput
+    some?: ClientContactWhereInput
+    none?: ClientContactWhereInput
+  }
+
+  export type ClientOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ClientContactOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type OrganizationCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -12692,6 +16091,187 @@ export namespace Prisma {
     metadata?: SortOrder
     createdAt?: SortOrder
     organizationId?: SortOrder
+  }
+
+  export type StringNullableListFilter<$PrismaModel = never> = {
+    equals?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    has?: string | StringFieldRefInput<$PrismaModel> | null
+    hasEvery?: string[] | ListStringFieldRefInput<$PrismaModel>
+    hasSome?: string[] | ListStringFieldRefInput<$PrismaModel>
+    isEmpty?: boolean
+  }
+  export type JsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type ClientCountOrderByAggregateInput = {
+    id?: SortOrder
+    organizationId?: SortOrder
+    name?: SortOrder
+    companyName?: SortOrder
+    website?: SortOrder
+    description?: SortOrder
+    logo?: SortOrder
+    primaryEmail?: SortOrder
+    primaryPhone?: SortOrder
+    industry?: SortOrder
+    companySize?: SortOrder
+    annualRevenue?: SortOrder
+    status?: SortOrder
+    priority?: SortOrder
+    source?: SortOrder
+    tags?: SortOrder
+    customFields?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    lastContactAt?: SortOrder
+  }
+
+  export type ClientMaxOrderByAggregateInput = {
+    id?: SortOrder
+    organizationId?: SortOrder
+    name?: SortOrder
+    companyName?: SortOrder
+    website?: SortOrder
+    description?: SortOrder
+    logo?: SortOrder
+    primaryEmail?: SortOrder
+    primaryPhone?: SortOrder
+    industry?: SortOrder
+    companySize?: SortOrder
+    annualRevenue?: SortOrder
+    status?: SortOrder
+    priority?: SortOrder
+    source?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    lastContactAt?: SortOrder
+  }
+
+  export type ClientMinOrderByAggregateInput = {
+    id?: SortOrder
+    organizationId?: SortOrder
+    name?: SortOrder
+    companyName?: SortOrder
+    website?: SortOrder
+    description?: SortOrder
+    logo?: SortOrder
+    primaryEmail?: SortOrder
+    primaryPhone?: SortOrder
+    industry?: SortOrder
+    companySize?: SortOrder
+    annualRevenue?: SortOrder
+    status?: SortOrder
+    priority?: SortOrder
+    source?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    lastContactAt?: SortOrder
+  }
+  export type JsonNullableWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonNullableWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonNullableWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedJsonNullableFilter<$PrismaModel>
+    _max?: NestedJsonNullableFilter<$PrismaModel>
+  }
+
+  export type ClientScalarRelationFilter = {
+    is?: ClientWhereInput
+    isNot?: ClientWhereInput
+  }
+
+  export type ClientContactCountOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    organizationId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    position?: SortOrder
+    department?: SortOrder
+    isPrimary?: SortOrder
+    preferredContactMethod?: SortOrder
+    timezone?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClientContactMaxOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    organizationId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    position?: SortOrder
+    department?: SortOrder
+    isPrimary?: SortOrder
+    preferredContactMethod?: SortOrder
+    timezone?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type ClientContactMinOrderByAggregateInput = {
+    id?: SortOrder
+    clientId?: SortOrder
+    organizationId?: SortOrder
+    firstName?: SortOrder
+    lastName?: SortOrder
+    email?: SortOrder
+    phone?: SortOrder
+    position?: SortOrder
+    department?: SortOrder
+    isPrimary?: SortOrder
+    preferredContactMethod?: SortOrder
+    timezone?: SortOrder
+    isActive?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SessionCreateNestedManyWithoutUserInput = {
@@ -12977,6 +16557,20 @@ export namespace Prisma {
     connect?: AuditLogWhereUniqueInput | AuditLogWhereUniqueInput[]
   }
 
+  export type ClientCreateNestedManyWithoutOrganizationInput = {
+    create?: XOR<ClientCreateWithoutOrganizationInput, ClientUncheckedCreateWithoutOrganizationInput> | ClientCreateWithoutOrganizationInput[] | ClientUncheckedCreateWithoutOrganizationInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutOrganizationInput | ClientCreateOrConnectWithoutOrganizationInput[]
+    createMany?: ClientCreateManyOrganizationInputEnvelope
+    connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
+  }
+
+  export type ClientContactCreateNestedManyWithoutOrganizationInput = {
+    create?: XOR<ClientContactCreateWithoutOrganizationInput, ClientContactUncheckedCreateWithoutOrganizationInput> | ClientContactCreateWithoutOrganizationInput[] | ClientContactUncheckedCreateWithoutOrganizationInput[]
+    connectOrCreate?: ClientContactCreateOrConnectWithoutOrganizationInput | ClientContactCreateOrConnectWithoutOrganizationInput[]
+    createMany?: ClientContactCreateManyOrganizationInputEnvelope
+    connect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+  }
+
   export type MemberUncheckedCreateNestedManyWithoutOrganizationInput = {
     create?: XOR<MemberCreateWithoutOrganizationInput, MemberUncheckedCreateWithoutOrganizationInput> | MemberCreateWithoutOrganizationInput[] | MemberUncheckedCreateWithoutOrganizationInput[]
     connectOrCreate?: MemberCreateOrConnectWithoutOrganizationInput | MemberCreateOrConnectWithoutOrganizationInput[]
@@ -12996,6 +16590,20 @@ export namespace Prisma {
     connectOrCreate?: AuditLogCreateOrConnectWithoutOrganizationInput | AuditLogCreateOrConnectWithoutOrganizationInput[]
     createMany?: AuditLogCreateManyOrganizationInputEnvelope
     connect?: AuditLogWhereUniqueInput | AuditLogWhereUniqueInput[]
+  }
+
+  export type ClientUncheckedCreateNestedManyWithoutOrganizationInput = {
+    create?: XOR<ClientCreateWithoutOrganizationInput, ClientUncheckedCreateWithoutOrganizationInput> | ClientCreateWithoutOrganizationInput[] | ClientUncheckedCreateWithoutOrganizationInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutOrganizationInput | ClientCreateOrConnectWithoutOrganizationInput[]
+    createMany?: ClientCreateManyOrganizationInputEnvelope
+    connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
+  }
+
+  export type ClientContactUncheckedCreateNestedManyWithoutOrganizationInput = {
+    create?: XOR<ClientContactCreateWithoutOrganizationInput, ClientContactUncheckedCreateWithoutOrganizationInput> | ClientContactCreateWithoutOrganizationInput[] | ClientContactUncheckedCreateWithoutOrganizationInput[]
+    connectOrCreate?: ClientContactCreateOrConnectWithoutOrganizationInput | ClientContactCreateOrConnectWithoutOrganizationInput[]
+    createMany?: ClientContactCreateManyOrganizationInputEnvelope
+    connect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
   }
 
   export type MemberUpdateManyWithoutOrganizationNestedInput = {
@@ -13040,6 +16648,34 @@ export namespace Prisma {
     deleteMany?: AuditLogScalarWhereInput | AuditLogScalarWhereInput[]
   }
 
+  export type ClientUpdateManyWithoutOrganizationNestedInput = {
+    create?: XOR<ClientCreateWithoutOrganizationInput, ClientUncheckedCreateWithoutOrganizationInput> | ClientCreateWithoutOrganizationInput[] | ClientUncheckedCreateWithoutOrganizationInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutOrganizationInput | ClientCreateOrConnectWithoutOrganizationInput[]
+    upsert?: ClientUpsertWithWhereUniqueWithoutOrganizationInput | ClientUpsertWithWhereUniqueWithoutOrganizationInput[]
+    createMany?: ClientCreateManyOrganizationInputEnvelope
+    set?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
+    disconnect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
+    delete?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
+    connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
+    update?: ClientUpdateWithWhereUniqueWithoutOrganizationInput | ClientUpdateWithWhereUniqueWithoutOrganizationInput[]
+    updateMany?: ClientUpdateManyWithWhereWithoutOrganizationInput | ClientUpdateManyWithWhereWithoutOrganizationInput[]
+    deleteMany?: ClientScalarWhereInput | ClientScalarWhereInput[]
+  }
+
+  export type ClientContactUpdateManyWithoutOrganizationNestedInput = {
+    create?: XOR<ClientContactCreateWithoutOrganizationInput, ClientContactUncheckedCreateWithoutOrganizationInput> | ClientContactCreateWithoutOrganizationInput[] | ClientContactUncheckedCreateWithoutOrganizationInput[]
+    connectOrCreate?: ClientContactCreateOrConnectWithoutOrganizationInput | ClientContactCreateOrConnectWithoutOrganizationInput[]
+    upsert?: ClientContactUpsertWithWhereUniqueWithoutOrganizationInput | ClientContactUpsertWithWhereUniqueWithoutOrganizationInput[]
+    createMany?: ClientContactCreateManyOrganizationInputEnvelope
+    set?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    disconnect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    delete?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    connect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    update?: ClientContactUpdateWithWhereUniqueWithoutOrganizationInput | ClientContactUpdateWithWhereUniqueWithoutOrganizationInput[]
+    updateMany?: ClientContactUpdateManyWithWhereWithoutOrganizationInput | ClientContactUpdateManyWithWhereWithoutOrganizationInput[]
+    deleteMany?: ClientContactScalarWhereInput | ClientContactScalarWhereInput[]
+  }
+
   export type MemberUncheckedUpdateManyWithoutOrganizationNestedInput = {
     create?: XOR<MemberCreateWithoutOrganizationInput, MemberUncheckedCreateWithoutOrganizationInput> | MemberCreateWithoutOrganizationInput[] | MemberUncheckedCreateWithoutOrganizationInput[]
     connectOrCreate?: MemberCreateOrConnectWithoutOrganizationInput | MemberCreateOrConnectWithoutOrganizationInput[]
@@ -13080,6 +16716,34 @@ export namespace Prisma {
     update?: AuditLogUpdateWithWhereUniqueWithoutOrganizationInput | AuditLogUpdateWithWhereUniqueWithoutOrganizationInput[]
     updateMany?: AuditLogUpdateManyWithWhereWithoutOrganizationInput | AuditLogUpdateManyWithWhereWithoutOrganizationInput[]
     deleteMany?: AuditLogScalarWhereInput | AuditLogScalarWhereInput[]
+  }
+
+  export type ClientUncheckedUpdateManyWithoutOrganizationNestedInput = {
+    create?: XOR<ClientCreateWithoutOrganizationInput, ClientUncheckedCreateWithoutOrganizationInput> | ClientCreateWithoutOrganizationInput[] | ClientUncheckedCreateWithoutOrganizationInput[]
+    connectOrCreate?: ClientCreateOrConnectWithoutOrganizationInput | ClientCreateOrConnectWithoutOrganizationInput[]
+    upsert?: ClientUpsertWithWhereUniqueWithoutOrganizationInput | ClientUpsertWithWhereUniqueWithoutOrganizationInput[]
+    createMany?: ClientCreateManyOrganizationInputEnvelope
+    set?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
+    disconnect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
+    delete?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
+    connect?: ClientWhereUniqueInput | ClientWhereUniqueInput[]
+    update?: ClientUpdateWithWhereUniqueWithoutOrganizationInput | ClientUpdateWithWhereUniqueWithoutOrganizationInput[]
+    updateMany?: ClientUpdateManyWithWhereWithoutOrganizationInput | ClientUpdateManyWithWhereWithoutOrganizationInput[]
+    deleteMany?: ClientScalarWhereInput | ClientScalarWhereInput[]
+  }
+
+  export type ClientContactUncheckedUpdateManyWithoutOrganizationNestedInput = {
+    create?: XOR<ClientContactCreateWithoutOrganizationInput, ClientContactUncheckedCreateWithoutOrganizationInput> | ClientContactCreateWithoutOrganizationInput[] | ClientContactUncheckedCreateWithoutOrganizationInput[]
+    connectOrCreate?: ClientContactCreateOrConnectWithoutOrganizationInput | ClientContactCreateOrConnectWithoutOrganizationInput[]
+    upsert?: ClientContactUpsertWithWhereUniqueWithoutOrganizationInput | ClientContactUpsertWithWhereUniqueWithoutOrganizationInput[]
+    createMany?: ClientContactCreateManyOrganizationInputEnvelope
+    set?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    disconnect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    delete?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    connect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    update?: ClientContactUpdateWithWhereUniqueWithoutOrganizationInput | ClientContactUpdateWithWhereUniqueWithoutOrganizationInput[]
+    updateMany?: ClientContactUpdateManyWithWhereWithoutOrganizationInput | ClientContactUpdateManyWithWhereWithoutOrganizationInput[]
+    deleteMany?: ClientContactScalarWhereInput | ClientContactScalarWhereInput[]
   }
 
   export type OrganizationCreateNestedOneWithoutMembersInput = {
@@ -13168,6 +16832,99 @@ export namespace Prisma {
     delete?: OrganizationWhereInput | boolean
     connect?: OrganizationWhereUniqueInput
     update?: XOR<XOR<OrganizationUpdateToOneWithWhereWithoutAuditLogsInput, OrganizationUpdateWithoutAuditLogsInput>, OrganizationUncheckedUpdateWithoutAuditLogsInput>
+  }
+
+  export type ClientCreatetagsInput = {
+    set: string[]
+  }
+
+  export type OrganizationCreateNestedOneWithoutClientInput = {
+    create?: XOR<OrganizationCreateWithoutClientInput, OrganizationUncheckedCreateWithoutClientInput>
+    connectOrCreate?: OrganizationCreateOrConnectWithoutClientInput
+    connect?: OrganizationWhereUniqueInput
+  }
+
+  export type ClientContactCreateNestedManyWithoutClientInput = {
+    create?: XOR<ClientContactCreateWithoutClientInput, ClientContactUncheckedCreateWithoutClientInput> | ClientContactCreateWithoutClientInput[] | ClientContactUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientContactCreateOrConnectWithoutClientInput | ClientContactCreateOrConnectWithoutClientInput[]
+    createMany?: ClientContactCreateManyClientInputEnvelope
+    connect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+  }
+
+  export type ClientContactUncheckedCreateNestedManyWithoutClientInput = {
+    create?: XOR<ClientContactCreateWithoutClientInput, ClientContactUncheckedCreateWithoutClientInput> | ClientContactCreateWithoutClientInput[] | ClientContactUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientContactCreateOrConnectWithoutClientInput | ClientContactCreateOrConnectWithoutClientInput[]
+    createMany?: ClientContactCreateManyClientInputEnvelope
+    connect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+  }
+
+  export type ClientUpdatetagsInput = {
+    set?: string[]
+    push?: string | string[]
+  }
+
+  export type OrganizationUpdateOneRequiredWithoutClientNestedInput = {
+    create?: XOR<OrganizationCreateWithoutClientInput, OrganizationUncheckedCreateWithoutClientInput>
+    connectOrCreate?: OrganizationCreateOrConnectWithoutClientInput
+    upsert?: OrganizationUpsertWithoutClientInput
+    connect?: OrganizationWhereUniqueInput
+    update?: XOR<XOR<OrganizationUpdateToOneWithWhereWithoutClientInput, OrganizationUpdateWithoutClientInput>, OrganizationUncheckedUpdateWithoutClientInput>
+  }
+
+  export type ClientContactUpdateManyWithoutClientNestedInput = {
+    create?: XOR<ClientContactCreateWithoutClientInput, ClientContactUncheckedCreateWithoutClientInput> | ClientContactCreateWithoutClientInput[] | ClientContactUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientContactCreateOrConnectWithoutClientInput | ClientContactCreateOrConnectWithoutClientInput[]
+    upsert?: ClientContactUpsertWithWhereUniqueWithoutClientInput | ClientContactUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: ClientContactCreateManyClientInputEnvelope
+    set?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    disconnect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    delete?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    connect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    update?: ClientContactUpdateWithWhereUniqueWithoutClientInput | ClientContactUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: ClientContactUpdateManyWithWhereWithoutClientInput | ClientContactUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: ClientContactScalarWhereInput | ClientContactScalarWhereInput[]
+  }
+
+  export type ClientContactUncheckedUpdateManyWithoutClientNestedInput = {
+    create?: XOR<ClientContactCreateWithoutClientInput, ClientContactUncheckedCreateWithoutClientInput> | ClientContactCreateWithoutClientInput[] | ClientContactUncheckedCreateWithoutClientInput[]
+    connectOrCreate?: ClientContactCreateOrConnectWithoutClientInput | ClientContactCreateOrConnectWithoutClientInput[]
+    upsert?: ClientContactUpsertWithWhereUniqueWithoutClientInput | ClientContactUpsertWithWhereUniqueWithoutClientInput[]
+    createMany?: ClientContactCreateManyClientInputEnvelope
+    set?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    disconnect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    delete?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    connect?: ClientContactWhereUniqueInput | ClientContactWhereUniqueInput[]
+    update?: ClientContactUpdateWithWhereUniqueWithoutClientInput | ClientContactUpdateWithWhereUniqueWithoutClientInput[]
+    updateMany?: ClientContactUpdateManyWithWhereWithoutClientInput | ClientContactUpdateManyWithWhereWithoutClientInput[]
+    deleteMany?: ClientContactScalarWhereInput | ClientContactScalarWhereInput[]
+  }
+
+  export type ClientCreateNestedOneWithoutContactsInput = {
+    create?: XOR<ClientCreateWithoutContactsInput, ClientUncheckedCreateWithoutContactsInput>
+    connectOrCreate?: ClientCreateOrConnectWithoutContactsInput
+    connect?: ClientWhereUniqueInput
+  }
+
+  export type OrganizationCreateNestedOneWithoutClientContactInput = {
+    create?: XOR<OrganizationCreateWithoutClientContactInput, OrganizationUncheckedCreateWithoutClientContactInput>
+    connectOrCreate?: OrganizationCreateOrConnectWithoutClientContactInput
+    connect?: OrganizationWhereUniqueInput
+  }
+
+  export type ClientUpdateOneRequiredWithoutContactsNestedInput = {
+    create?: XOR<ClientCreateWithoutContactsInput, ClientUncheckedCreateWithoutContactsInput>
+    connectOrCreate?: ClientCreateOrConnectWithoutContactsInput
+    upsert?: ClientUpsertWithoutContactsInput
+    connect?: ClientWhereUniqueInput
+    update?: XOR<XOR<ClientUpdateToOneWithWhereWithoutContactsInput, ClientUpdateWithoutContactsInput>, ClientUncheckedUpdateWithoutContactsInput>
+  }
+
+  export type OrganizationUpdateOneRequiredWithoutClientContactNestedInput = {
+    create?: XOR<OrganizationCreateWithoutClientContactInput, OrganizationUncheckedCreateWithoutClientContactInput>
+    connectOrCreate?: OrganizationCreateOrConnectWithoutClientContactInput
+    upsert?: OrganizationUpsertWithoutClientContactInput
+    connect?: OrganizationWhereUniqueInput
+    update?: XOR<XOR<OrganizationUpdateToOneWithWhereWithoutClientContactInput, OrganizationUpdateWithoutClientContactInput>, OrganizationUncheckedUpdateWithoutClientContactInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -13328,6 +17085,29 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+  export type NestedJsonNullableFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonNullableFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonNullableFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonNullableFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string[]
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_contains?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    lt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    lte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gt?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    gte?: InputJsonValue | JsonFieldRefInput<$PrismaModel>
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
   export type SessionCreateWithoutUserInput = {
@@ -13922,6 +17702,106 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type ClientCreateWithoutOrganizationInput = {
+    id?: string
+    name: string
+    companyName?: string | null
+    website?: string | null
+    description?: string | null
+    logo?: string | null
+    primaryEmail?: string | null
+    primaryPhone?: string | null
+    industry?: string | null
+    companySize?: string | null
+    annualRevenue?: string | null
+    status?: string
+    priority?: string
+    source?: string | null
+    tags?: ClientCreatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContactAt?: Date | string | null
+    contacts?: ClientContactCreateNestedManyWithoutClientInput
+  }
+
+  export type ClientUncheckedCreateWithoutOrganizationInput = {
+    id?: string
+    name: string
+    companyName?: string | null
+    website?: string | null
+    description?: string | null
+    logo?: string | null
+    primaryEmail?: string | null
+    primaryPhone?: string | null
+    industry?: string | null
+    companySize?: string | null
+    annualRevenue?: string | null
+    status?: string
+    priority?: string
+    source?: string | null
+    tags?: ClientCreatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContactAt?: Date | string | null
+    contacts?: ClientContactUncheckedCreateNestedManyWithoutClientInput
+  }
+
+  export type ClientCreateOrConnectWithoutOrganizationInput = {
+    where: ClientWhereUniqueInput
+    create: XOR<ClientCreateWithoutOrganizationInput, ClientUncheckedCreateWithoutOrganizationInput>
+  }
+
+  export type ClientCreateManyOrganizationInputEnvelope = {
+    data: ClientCreateManyOrganizationInput | ClientCreateManyOrganizationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ClientContactCreateWithoutOrganizationInput = {
+    id?: string
+    firstName: string
+    lastName: string
+    email?: string | null
+    phone?: string | null
+    position?: string | null
+    department?: string | null
+    isPrimary?: boolean
+    preferredContactMethod?: string | null
+    timezone?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    client: ClientCreateNestedOneWithoutContactsInput
+  }
+
+  export type ClientContactUncheckedCreateWithoutOrganizationInput = {
+    id?: string
+    clientId: string
+    firstName: string
+    lastName: string
+    email?: string | null
+    phone?: string | null
+    position?: string | null
+    department?: string | null
+    isPrimary?: boolean
+    preferredContactMethod?: string | null
+    timezone?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClientContactCreateOrConnectWithoutOrganizationInput = {
+    where: ClientContactWhereUniqueInput
+    create: XOR<ClientContactCreateWithoutOrganizationInput, ClientContactUncheckedCreateWithoutOrganizationInput>
+  }
+
+  export type ClientContactCreateManyOrganizationInputEnvelope = {
+    data: ClientContactCreateManyOrganizationInput | ClientContactCreateManyOrganizationInput[]
+    skipDuplicates?: boolean
+  }
+
   export type MemberUpsertWithWhereUniqueWithoutOrganizationInput = {
     where: MemberWhereUniqueInput
     update: XOR<MemberUpdateWithoutOrganizationInput, MemberUncheckedUpdateWithoutOrganizationInput>
@@ -13970,6 +17850,85 @@ export namespace Prisma {
     data: XOR<AuditLogUpdateManyMutationInput, AuditLogUncheckedUpdateManyWithoutOrganizationInput>
   }
 
+  export type ClientUpsertWithWhereUniqueWithoutOrganizationInput = {
+    where: ClientWhereUniqueInput
+    update: XOR<ClientUpdateWithoutOrganizationInput, ClientUncheckedUpdateWithoutOrganizationInput>
+    create: XOR<ClientCreateWithoutOrganizationInput, ClientUncheckedCreateWithoutOrganizationInput>
+  }
+
+  export type ClientUpdateWithWhereUniqueWithoutOrganizationInput = {
+    where: ClientWhereUniqueInput
+    data: XOR<ClientUpdateWithoutOrganizationInput, ClientUncheckedUpdateWithoutOrganizationInput>
+  }
+
+  export type ClientUpdateManyWithWhereWithoutOrganizationInput = {
+    where: ClientScalarWhereInput
+    data: XOR<ClientUpdateManyMutationInput, ClientUncheckedUpdateManyWithoutOrganizationInput>
+  }
+
+  export type ClientScalarWhereInput = {
+    AND?: ClientScalarWhereInput | ClientScalarWhereInput[]
+    OR?: ClientScalarWhereInput[]
+    NOT?: ClientScalarWhereInput | ClientScalarWhereInput[]
+    id?: StringFilter<"Client"> | string
+    organizationId?: StringFilter<"Client"> | string
+    name?: StringFilter<"Client"> | string
+    companyName?: StringNullableFilter<"Client"> | string | null
+    website?: StringNullableFilter<"Client"> | string | null
+    description?: StringNullableFilter<"Client"> | string | null
+    logo?: StringNullableFilter<"Client"> | string | null
+    primaryEmail?: StringNullableFilter<"Client"> | string | null
+    primaryPhone?: StringNullableFilter<"Client"> | string | null
+    industry?: StringNullableFilter<"Client"> | string | null
+    companySize?: StringNullableFilter<"Client"> | string | null
+    annualRevenue?: StringNullableFilter<"Client"> | string | null
+    status?: StringFilter<"Client"> | string
+    priority?: StringFilter<"Client"> | string
+    source?: StringNullableFilter<"Client"> | string | null
+    tags?: StringNullableListFilter<"Client">
+    customFields?: JsonNullableFilter<"Client">
+    createdAt?: DateTimeFilter<"Client"> | Date | string
+    updatedAt?: DateTimeFilter<"Client"> | Date | string
+    lastContactAt?: DateTimeNullableFilter<"Client"> | Date | string | null
+  }
+
+  export type ClientContactUpsertWithWhereUniqueWithoutOrganizationInput = {
+    where: ClientContactWhereUniqueInput
+    update: XOR<ClientContactUpdateWithoutOrganizationInput, ClientContactUncheckedUpdateWithoutOrganizationInput>
+    create: XOR<ClientContactCreateWithoutOrganizationInput, ClientContactUncheckedCreateWithoutOrganizationInput>
+  }
+
+  export type ClientContactUpdateWithWhereUniqueWithoutOrganizationInput = {
+    where: ClientContactWhereUniqueInput
+    data: XOR<ClientContactUpdateWithoutOrganizationInput, ClientContactUncheckedUpdateWithoutOrganizationInput>
+  }
+
+  export type ClientContactUpdateManyWithWhereWithoutOrganizationInput = {
+    where: ClientContactScalarWhereInput
+    data: XOR<ClientContactUpdateManyMutationInput, ClientContactUncheckedUpdateManyWithoutOrganizationInput>
+  }
+
+  export type ClientContactScalarWhereInput = {
+    AND?: ClientContactScalarWhereInput | ClientContactScalarWhereInput[]
+    OR?: ClientContactScalarWhereInput[]
+    NOT?: ClientContactScalarWhereInput | ClientContactScalarWhereInput[]
+    id?: StringFilter<"ClientContact"> | string
+    clientId?: StringFilter<"ClientContact"> | string
+    organizationId?: StringFilter<"ClientContact"> | string
+    firstName?: StringFilter<"ClientContact"> | string
+    lastName?: StringFilter<"ClientContact"> | string
+    email?: StringNullableFilter<"ClientContact"> | string | null
+    phone?: StringNullableFilter<"ClientContact"> | string | null
+    position?: StringNullableFilter<"ClientContact"> | string | null
+    department?: StringNullableFilter<"ClientContact"> | string | null
+    isPrimary?: BoolFilter<"ClientContact"> | boolean
+    preferredContactMethod?: StringNullableFilter<"ClientContact"> | string | null
+    timezone?: StringNullableFilter<"ClientContact"> | string | null
+    isActive?: BoolFilter<"ClientContact"> | boolean
+    createdAt?: DateTimeFilter<"ClientContact"> | Date | string
+    updatedAt?: DateTimeFilter<"ClientContact"> | Date | string
+  }
+
   export type OrganizationCreateWithoutMembersInput = {
     id: string
     name: string
@@ -13979,6 +17938,8 @@ export namespace Prisma {
     metadata?: string | null
     invitations?: InvitationCreateNestedManyWithoutOrganizationInput
     auditLogs?: AuditLogCreateNestedManyWithoutOrganizationInput
+    Client?: ClientCreateNestedManyWithoutOrganizationInput
+    ClientContact?: ClientContactCreateNestedManyWithoutOrganizationInput
   }
 
   export type OrganizationUncheckedCreateWithoutMembersInput = {
@@ -13990,6 +17951,8 @@ export namespace Prisma {
     metadata?: string | null
     invitations?: InvitationUncheckedCreateNestedManyWithoutOrganizationInput
     auditLogs?: AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+    Client?: ClientUncheckedCreateNestedManyWithoutOrganizationInput
+    ClientContact?: ClientContactUncheckedCreateNestedManyWithoutOrganizationInput
   }
 
   export type OrganizationCreateOrConnectWithoutMembersInput = {
@@ -14058,6 +18021,8 @@ export namespace Prisma {
     metadata?: NullableStringFieldUpdateOperationsInput | string | null
     invitations?: InvitationUpdateManyWithoutOrganizationNestedInput
     auditLogs?: AuditLogUpdateManyWithoutOrganizationNestedInput
+    Client?: ClientUpdateManyWithoutOrganizationNestedInput
+    ClientContact?: ClientContactUpdateManyWithoutOrganizationNestedInput
   }
 
   export type OrganizationUncheckedUpdateWithoutMembersInput = {
@@ -14069,6 +18034,8 @@ export namespace Prisma {
     metadata?: NullableStringFieldUpdateOperationsInput | string | null
     invitations?: InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
     auditLogs?: AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+    Client?: ClientUncheckedUpdateManyWithoutOrganizationNestedInput
+    ClientContact?: ClientContactUncheckedUpdateManyWithoutOrganizationNestedInput
   }
 
   export type UserUpsertWithoutMembersInput = {
@@ -14127,6 +18094,8 @@ export namespace Prisma {
     metadata?: string | null
     members?: MemberCreateNestedManyWithoutOrganizationInput
     auditLogs?: AuditLogCreateNestedManyWithoutOrganizationInput
+    Client?: ClientCreateNestedManyWithoutOrganizationInput
+    ClientContact?: ClientContactCreateNestedManyWithoutOrganizationInput
   }
 
   export type OrganizationUncheckedCreateWithoutInvitationsInput = {
@@ -14138,6 +18107,8 @@ export namespace Prisma {
     metadata?: string | null
     members?: MemberUncheckedCreateNestedManyWithoutOrganizationInput
     auditLogs?: AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+    Client?: ClientUncheckedCreateNestedManyWithoutOrganizationInput
+    ClientContact?: ClientContactUncheckedCreateNestedManyWithoutOrganizationInput
   }
 
   export type OrganizationCreateOrConnectWithoutInvitationsInput = {
@@ -14206,6 +18177,8 @@ export namespace Prisma {
     metadata?: NullableStringFieldUpdateOperationsInput | string | null
     members?: MemberUpdateManyWithoutOrganizationNestedInput
     auditLogs?: AuditLogUpdateManyWithoutOrganizationNestedInput
+    Client?: ClientUpdateManyWithoutOrganizationNestedInput
+    ClientContact?: ClientContactUpdateManyWithoutOrganizationNestedInput
   }
 
   export type OrganizationUncheckedUpdateWithoutInvitationsInput = {
@@ -14217,6 +18190,8 @@ export namespace Prisma {
     metadata?: NullableStringFieldUpdateOperationsInput | string | null
     members?: MemberUncheckedUpdateManyWithoutOrganizationNestedInput
     auditLogs?: AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+    Client?: ClientUncheckedUpdateManyWithoutOrganizationNestedInput
+    ClientContact?: ClientContactUncheckedUpdateManyWithoutOrganizationNestedInput
   }
 
   export type UserUpsertWithoutInvitationsInput = {
@@ -14316,6 +18291,8 @@ export namespace Prisma {
     metadata?: string | null
     members?: MemberCreateNestedManyWithoutOrganizationInput
     invitations?: InvitationCreateNestedManyWithoutOrganizationInput
+    Client?: ClientCreateNestedManyWithoutOrganizationInput
+    ClientContact?: ClientContactCreateNestedManyWithoutOrganizationInput
   }
 
   export type OrganizationUncheckedCreateWithoutAuditLogsInput = {
@@ -14327,6 +18304,8 @@ export namespace Prisma {
     metadata?: string | null
     members?: MemberUncheckedCreateNestedManyWithoutOrganizationInput
     invitations?: InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+    Client?: ClientUncheckedCreateNestedManyWithoutOrganizationInput
+    ClientContact?: ClientContactUncheckedCreateNestedManyWithoutOrganizationInput
   }
 
   export type OrganizationCreateOrConnectWithoutAuditLogsInput = {
@@ -14401,6 +18380,8 @@ export namespace Prisma {
     metadata?: NullableStringFieldUpdateOperationsInput | string | null
     members?: MemberUpdateManyWithoutOrganizationNestedInput
     invitations?: InvitationUpdateManyWithoutOrganizationNestedInput
+    Client?: ClientUpdateManyWithoutOrganizationNestedInput
+    ClientContact?: ClientContactUpdateManyWithoutOrganizationNestedInput
   }
 
   export type OrganizationUncheckedUpdateWithoutAuditLogsInput = {
@@ -14412,6 +18393,312 @@ export namespace Prisma {
     metadata?: NullableStringFieldUpdateOperationsInput | string | null
     members?: MemberUncheckedUpdateManyWithoutOrganizationNestedInput
     invitations?: InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+    Client?: ClientUncheckedUpdateManyWithoutOrganizationNestedInput
+    ClientContact?: ClientContactUncheckedUpdateManyWithoutOrganizationNestedInput
+  }
+
+  export type OrganizationCreateWithoutClientInput = {
+    id: string
+    name: string
+    slug?: string | null
+    logo?: string | null
+    createdAt: Date | string
+    metadata?: string | null
+    members?: MemberCreateNestedManyWithoutOrganizationInput
+    invitations?: InvitationCreateNestedManyWithoutOrganizationInput
+    auditLogs?: AuditLogCreateNestedManyWithoutOrganizationInput
+    ClientContact?: ClientContactCreateNestedManyWithoutOrganizationInput
+  }
+
+  export type OrganizationUncheckedCreateWithoutClientInput = {
+    id: string
+    name: string
+    slug?: string | null
+    logo?: string | null
+    createdAt: Date | string
+    metadata?: string | null
+    members?: MemberUncheckedCreateNestedManyWithoutOrganizationInput
+    invitations?: InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+    ClientContact?: ClientContactUncheckedCreateNestedManyWithoutOrganizationInput
+  }
+
+  export type OrganizationCreateOrConnectWithoutClientInput = {
+    where: OrganizationWhereUniqueInput
+    create: XOR<OrganizationCreateWithoutClientInput, OrganizationUncheckedCreateWithoutClientInput>
+  }
+
+  export type ClientContactCreateWithoutClientInput = {
+    id?: string
+    firstName: string
+    lastName: string
+    email?: string | null
+    phone?: string | null
+    position?: string | null
+    department?: string | null
+    isPrimary?: boolean
+    preferredContactMethod?: string | null
+    timezone?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    organization: OrganizationCreateNestedOneWithoutClientContactInput
+  }
+
+  export type ClientContactUncheckedCreateWithoutClientInput = {
+    id?: string
+    organizationId: string
+    firstName: string
+    lastName: string
+    email?: string | null
+    phone?: string | null
+    position?: string | null
+    department?: string | null
+    isPrimary?: boolean
+    preferredContactMethod?: string | null
+    timezone?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClientContactCreateOrConnectWithoutClientInput = {
+    where: ClientContactWhereUniqueInput
+    create: XOR<ClientContactCreateWithoutClientInput, ClientContactUncheckedCreateWithoutClientInput>
+  }
+
+  export type ClientContactCreateManyClientInputEnvelope = {
+    data: ClientContactCreateManyClientInput | ClientContactCreateManyClientInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type OrganizationUpsertWithoutClientInput = {
+    update: XOR<OrganizationUpdateWithoutClientInput, OrganizationUncheckedUpdateWithoutClientInput>
+    create: XOR<OrganizationCreateWithoutClientInput, OrganizationUncheckedCreateWithoutClientInput>
+    where?: OrganizationWhereInput
+  }
+
+  export type OrganizationUpdateToOneWithWhereWithoutClientInput = {
+    where?: OrganizationWhereInput
+    data: XOR<OrganizationUpdateWithoutClientInput, OrganizationUncheckedUpdateWithoutClientInput>
+  }
+
+  export type OrganizationUpdateWithoutClientInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableStringFieldUpdateOperationsInput | string | null
+    members?: MemberUpdateManyWithoutOrganizationNestedInput
+    invitations?: InvitationUpdateManyWithoutOrganizationNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutOrganizationNestedInput
+    ClientContact?: ClientContactUpdateManyWithoutOrganizationNestedInput
+  }
+
+  export type OrganizationUncheckedUpdateWithoutClientInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableStringFieldUpdateOperationsInput | string | null
+    members?: MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+    invitations?: InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+    ClientContact?: ClientContactUncheckedUpdateManyWithoutOrganizationNestedInput
+  }
+
+  export type ClientContactUpsertWithWhereUniqueWithoutClientInput = {
+    where: ClientContactWhereUniqueInput
+    update: XOR<ClientContactUpdateWithoutClientInput, ClientContactUncheckedUpdateWithoutClientInput>
+    create: XOR<ClientContactCreateWithoutClientInput, ClientContactUncheckedCreateWithoutClientInput>
+  }
+
+  export type ClientContactUpdateWithWhereUniqueWithoutClientInput = {
+    where: ClientContactWhereUniqueInput
+    data: XOR<ClientContactUpdateWithoutClientInput, ClientContactUncheckedUpdateWithoutClientInput>
+  }
+
+  export type ClientContactUpdateManyWithWhereWithoutClientInput = {
+    where: ClientContactScalarWhereInput
+    data: XOR<ClientContactUpdateManyMutationInput, ClientContactUncheckedUpdateManyWithoutClientInput>
+  }
+
+  export type ClientCreateWithoutContactsInput = {
+    id?: string
+    name: string
+    companyName?: string | null
+    website?: string | null
+    description?: string | null
+    logo?: string | null
+    primaryEmail?: string | null
+    primaryPhone?: string | null
+    industry?: string | null
+    companySize?: string | null
+    annualRevenue?: string | null
+    status?: string
+    priority?: string
+    source?: string | null
+    tags?: ClientCreatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContactAt?: Date | string | null
+    organization: OrganizationCreateNestedOneWithoutClientInput
+  }
+
+  export type ClientUncheckedCreateWithoutContactsInput = {
+    id?: string
+    organizationId: string
+    name: string
+    companyName?: string | null
+    website?: string | null
+    description?: string | null
+    logo?: string | null
+    primaryEmail?: string | null
+    primaryPhone?: string | null
+    industry?: string | null
+    companySize?: string | null
+    annualRevenue?: string | null
+    status?: string
+    priority?: string
+    source?: string | null
+    tags?: ClientCreatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContactAt?: Date | string | null
+  }
+
+  export type ClientCreateOrConnectWithoutContactsInput = {
+    where: ClientWhereUniqueInput
+    create: XOR<ClientCreateWithoutContactsInput, ClientUncheckedCreateWithoutContactsInput>
+  }
+
+  export type OrganizationCreateWithoutClientContactInput = {
+    id: string
+    name: string
+    slug?: string | null
+    logo?: string | null
+    createdAt: Date | string
+    metadata?: string | null
+    members?: MemberCreateNestedManyWithoutOrganizationInput
+    invitations?: InvitationCreateNestedManyWithoutOrganizationInput
+    auditLogs?: AuditLogCreateNestedManyWithoutOrganizationInput
+    Client?: ClientCreateNestedManyWithoutOrganizationInput
+  }
+
+  export type OrganizationUncheckedCreateWithoutClientContactInput = {
+    id: string
+    name: string
+    slug?: string | null
+    logo?: string | null
+    createdAt: Date | string
+    metadata?: string | null
+    members?: MemberUncheckedCreateNestedManyWithoutOrganizationInput
+    invitations?: InvitationUncheckedCreateNestedManyWithoutOrganizationInput
+    auditLogs?: AuditLogUncheckedCreateNestedManyWithoutOrganizationInput
+    Client?: ClientUncheckedCreateNestedManyWithoutOrganizationInput
+  }
+
+  export type OrganizationCreateOrConnectWithoutClientContactInput = {
+    where: OrganizationWhereUniqueInput
+    create: XOR<OrganizationCreateWithoutClientContactInput, OrganizationUncheckedCreateWithoutClientContactInput>
+  }
+
+  export type ClientUpsertWithoutContactsInput = {
+    update: XOR<ClientUpdateWithoutContactsInput, ClientUncheckedUpdateWithoutContactsInput>
+    create: XOR<ClientCreateWithoutContactsInput, ClientUncheckedCreateWithoutContactsInput>
+    where?: ClientWhereInput
+  }
+
+  export type ClientUpdateToOneWithWhereWithoutContactsInput = {
+    where?: ClientWhereInput
+    data: XOR<ClientUpdateWithoutContactsInput, ClientUncheckedUpdateWithoutContactsInput>
+  }
+
+  export type ClientUpdateWithoutContactsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    companySize?: NullableStringFieldUpdateOperationsInput | string | null
+    annualRevenue?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: ClientUpdatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    organization?: OrganizationUpdateOneRequiredWithoutClientNestedInput
+  }
+
+  export type ClientUncheckedUpdateWithoutContactsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organizationId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    companySize?: NullableStringFieldUpdateOperationsInput | string | null
+    annualRevenue?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: ClientUpdatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type OrganizationUpsertWithoutClientContactInput = {
+    update: XOR<OrganizationUpdateWithoutClientContactInput, OrganizationUncheckedUpdateWithoutClientContactInput>
+    create: XOR<OrganizationCreateWithoutClientContactInput, OrganizationUncheckedCreateWithoutClientContactInput>
+    where?: OrganizationWhereInput
+  }
+
+  export type OrganizationUpdateToOneWithWhereWithoutClientContactInput = {
+    where?: OrganizationWhereInput
+    data: XOR<OrganizationUpdateWithoutClientContactInput, OrganizationUncheckedUpdateWithoutClientContactInput>
+  }
+
+  export type OrganizationUpdateWithoutClientContactInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableStringFieldUpdateOperationsInput | string | null
+    members?: MemberUpdateManyWithoutOrganizationNestedInput
+    invitations?: InvitationUpdateManyWithoutOrganizationNestedInput
+    auditLogs?: AuditLogUpdateManyWithoutOrganizationNestedInput
+    Client?: ClientUpdateManyWithoutOrganizationNestedInput
+  }
+
+  export type OrganizationUncheckedUpdateWithoutClientContactInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    slug?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    metadata?: NullableStringFieldUpdateOperationsInput | string | null
+    members?: MemberUncheckedUpdateManyWithoutOrganizationNestedInput
+    invitations?: InvitationUncheckedUpdateManyWithoutOrganizationNestedInput
+    auditLogs?: AuditLogUncheckedUpdateManyWithoutOrganizationNestedInput
+    Client?: ClientUncheckedUpdateManyWithoutOrganizationNestedInput
   }
 
   export type SessionCreateManyUserInput = {
@@ -14677,6 +18964,45 @@ export namespace Prisma {
     createdAt?: Date | string
   }
 
+  export type ClientCreateManyOrganizationInput = {
+    id?: string
+    name: string
+    companyName?: string | null
+    website?: string | null
+    description?: string | null
+    logo?: string | null
+    primaryEmail?: string | null
+    primaryPhone?: string | null
+    industry?: string | null
+    companySize?: string | null
+    annualRevenue?: string | null
+    status?: string
+    priority?: string
+    source?: string | null
+    tags?: ClientCreatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    lastContactAt?: Date | string | null
+  }
+
+  export type ClientContactCreateManyOrganizationInput = {
+    id?: string
+    clientId: string
+    firstName: string
+    lastName: string
+    email?: string | null
+    phone?: string | null
+    position?: string | null
+    department?: string | null
+    isPrimary?: boolean
+    preferredContactMethod?: string | null
+    timezone?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type MemberUpdateWithoutOrganizationInput = {
     id?: StringFieldUpdateOperationsInput | string
     role?: StringFieldUpdateOperationsInput | string
@@ -14768,6 +19094,193 @@ export namespace Prisma {
     message?: NullableStringFieldUpdateOperationsInput | string | null
     metadata?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientUpdateWithoutOrganizationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    companySize?: NullableStringFieldUpdateOperationsInput | string | null
+    annualRevenue?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: ClientUpdatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contacts?: ClientContactUpdateManyWithoutClientNestedInput
+  }
+
+  export type ClientUncheckedUpdateWithoutOrganizationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    companySize?: NullableStringFieldUpdateOperationsInput | string | null
+    annualRevenue?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: ClientUpdatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    contacts?: ClientContactUncheckedUpdateManyWithoutClientNestedInput
+  }
+
+  export type ClientUncheckedUpdateManyWithoutOrganizationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    website?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    logo?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryEmail?: NullableStringFieldUpdateOperationsInput | string | null
+    primaryPhone?: NullableStringFieldUpdateOperationsInput | string | null
+    industry?: NullableStringFieldUpdateOperationsInput | string | null
+    companySize?: NullableStringFieldUpdateOperationsInput | string | null
+    annualRevenue?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    priority?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
+    tags?: ClientUpdatetagsInput | string[]
+    customFields?: NullableJsonNullValueInput | InputJsonValue
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    lastContactAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  }
+
+  export type ClientContactUpdateWithoutOrganizationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    preferredContactMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    client?: ClientUpdateOneRequiredWithoutContactsNestedInput
+  }
+
+  export type ClientContactUncheckedUpdateWithoutOrganizationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clientId?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    preferredContactMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientContactUncheckedUpdateManyWithoutOrganizationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    clientId?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    preferredContactMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientContactCreateManyClientInput = {
+    id?: string
+    organizationId: string
+    firstName: string
+    lastName: string
+    email?: string | null
+    phone?: string | null
+    position?: string | null
+    department?: string | null
+    isPrimary?: boolean
+    preferredContactMethod?: string | null
+    timezone?: string | null
+    isActive?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ClientContactUpdateWithoutClientInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    preferredContactMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    organization?: OrganizationUpdateOneRequiredWithoutClientContactNestedInput
+  }
+
+  export type ClientContactUncheckedUpdateWithoutClientInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organizationId?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    preferredContactMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ClientContactUncheckedUpdateManyWithoutClientInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    organizationId?: StringFieldUpdateOperationsInput | string
+    firstName?: StringFieldUpdateOperationsInput | string
+    lastName?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    position?: NullableStringFieldUpdateOperationsInput | string | null
+    department?: NullableStringFieldUpdateOperationsInput | string | null
+    isPrimary?: BoolFieldUpdateOperationsInput | boolean
+    preferredContactMethod?: NullableStringFieldUpdateOperationsInput | string | null
+    timezone?: NullableStringFieldUpdateOperationsInput | string | null
+    isActive?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 
